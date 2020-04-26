@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "Faux Pas - inspection tool for Xcode projects"
+date:   2014-08-07 17:15:35+03:00
+categories: Dev Tools Xcode
+tags: Dev Tools Xcode
+
+---
+
+<img style="float: right; margin: 0px 0px 10px 10px" width="60%" src="/assets/fauxpas_small.jpg">
+
+I just came across a great tool, called [Faux Pas](http://fauxpasapp.com/).
+
+> *Faux Pas inspects your iOS or Mac app's Xcode project and warns about possible bugs, as well as about maintainability and style issues.*
+
+It\'s in Beta right now, so everyone can download it for free and play with it.
+
+How it works:
+- you just select an Xcode project and it will analyse all the content,
+using a set of rules you can enable/disable
+
+Why I liked it:
+- you can enable/disable the rules, rules which are indeed based on best practices
+- the rules are documented, with examples and links to documentation (Apple Docs, Stack Overflow, \...). What else could we ask for?
+- besides simple checks like duplicate images, bad usage of prefixes or IBOutlets declared in the public interface of a class, it checks for more complex stuff like:
+  - Setter invocation in `init` or `dealloc` method
+  - Modifying the value of an argument variable
+  - Moving common inclusions into prefix header
+  - Method swizzling
+  - `NSLog()` used in release build
+  - Class implements `-isEqual:` but not `-hash`
+  - Conflicting category methods
+  - and many others
+- it comes with a command line set of scripts that can be easily integrated within Xcode or your Continuos Integration system
+
+Just give it a try, it will definitely help you.
+
+![FauxPas](/assets/fauxpas.jpg?w=660)
