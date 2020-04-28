@@ -28,7 +28,7 @@ twitter_username: null
 github_username:  bpoplauschi
 
 # Build settings
-theme: minima
+theme: jekyll-theme-midnight
 plugins:
   - jekyll-feed
 
