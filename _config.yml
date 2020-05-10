@@ -31,6 +31,11 @@ github_username:  bpoplauschi
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Google Analytics
+google_analytics: UA-166096098-1
 
 # Exclude from processing.
 # The following items will not be processed, by default.
