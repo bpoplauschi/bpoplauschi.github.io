@@ -2,8 +2,8 @@
 layout: post
 title:  "Worthy iOS development tools"
 date:   2014-03-07 13:53:41.000000000 +02:00
-categories: Cocoapods Dev tools Xcode
-tags: Alcatraz analytics AppCoode Araxis Merge coding style crash Crashlytics debug dependency design dev developer diff GIMP Git Github IDE Kaleidoscope merge Nomad CLI Objective Clean plugins Pony Debugger Reveal SourceTree Sublime tool VVDocumenter
+categories: 
+tags: [Alcatraz, analytics, AppCoode, Araxis Merge, coding style, crash, Crashlytics, debug, dependency, design, dev, developer, diff, GIMP, Git, Github, IDE, Kaleidoscope, merge, Nomad CLI, Objective Clean, plugins, Pony Debugger, Reveal, SourceTree, Sublime, tool, VVDocumenter]
 
 
 ---

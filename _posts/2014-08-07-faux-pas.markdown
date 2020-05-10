@@ -2,8 +2,8 @@
 layout: post
 title:  "Faux Pas - inspection tool for Xcode projects"
 date:   2014-08-07 17:15:35+03:00
-categories: Dev Tools Xcode
-tags: Dev Tools Xcode
+categories: 
+tags: [Dev, Tools, Xcode]
 
 ---
 

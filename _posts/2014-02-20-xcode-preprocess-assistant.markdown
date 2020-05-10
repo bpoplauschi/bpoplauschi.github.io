@@ -2,8 +2,8 @@
 layout: post
 title:  "Xcode preprocess assistant"
 date:   2014-02-20 12:20:46.000000000+02:00
-categories: Dev tools Xcode
-tags: assistant dev developer preprocess tool
+categories: 
+tags: [assistant, dev, developer, preprocess tool]
 
 
 ---

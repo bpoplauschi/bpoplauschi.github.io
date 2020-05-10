@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Worthy iOS libraries"
+title:  "Worthy iOS libraries (v1)"
 date:   2013-11-06 13:48:40.000000000+02:00
-categories: Cocoapods Dev tools Library Open Source
-tags: AFNetworking analytics BPForms cache caching Cocoa controls cocoadocs CocoaLumberjack Crashlytics CrashlyticsFramework debug dev developer image JSON keychain library logging MagicalRecord Masonry media open source plugins ReactiveCocoa reuse SDWebImage social tool UI7Kit unit test Xcode XML
+categories:
+tags: [AFNetworking, analytics, BPForms, cache, caching, Cocoa, controls, cocoadocs, CocoaLumberjack, Crashlytics, CrashlyticsFramework, debug, dev, developer, image, JSON, keychain, library, logging, MagicalRecord, Masonry, media, open source, plugins, ReactiveCocoa, reuse, SDWebImage, social, tool, UI7Kit, unit, test, Xcode, XML]
 
 ---
 
@@ -97,6 +97,7 @@ At last, I want to briefly list the most common ones, projects from each and eve
         1.  [Cocoadocs](http://cocoadocs.org/) - documentation for all Cocoapods projects
         2.  [appledoc](https://github.com/tomaz/appledoc) - command line tool for generating \"Apple like\" code documentation from comments
     8.  Acknowledgements
+        
         1.  Listing the licenses of all the open source libraries used is a recommendation (might become a must in the near future). [VTAcknowledgementsViewController](https://github.com/vtourraine/VTAcknowledgementsViewController)
     9.  Xcode plugins
         1.  [Alcatraz](https://github.com/mneorr/Alcatraz) - Xcode package manager

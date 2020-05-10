@@ -2,8 +2,8 @@
 layout: post
 title:  "iOS image caching. Libraries benchmark (SDWebImage vs FastImageCache)"
 date:   2014-03-21 12:26:18.000000000+02:00
-categories: Cocoapods image caching Library Open Source
-tags: AFNetworking background cache caching decompression disk FastImageCache Haneke image memory SDWebImage TMCache
+categories: 
+tags: [AFNetworking, background, cache, caching, decompression, disk, FastImageCache, Haneke, image, memory, SDWebImage, TMCache]
 
 
 ---
