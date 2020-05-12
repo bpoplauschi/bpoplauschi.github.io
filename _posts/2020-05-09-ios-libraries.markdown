@@ -20,11 +20,11 @@ Just take a look if you're curious which libraries were popular then.
 
 
 
-As a small recap, back in 2013:
+As a small recap, back in 2013 (see the end of this article for some photos of those old techs):
 
 #### No Swift
 
-Swift didn't exist (at least not released to the public), it announced to the public and released only in 2014.
+Swift was only a private project inside Apple's secret labs, as it was announced to the public and released only in 2014.
 
 #### iOS 7 and OS X 10.8 Mountain Lion
 
@@ -169,3 +169,23 @@ I still enjoy steaks, but I've migrated to more "rare" options :)
        1.  Distribution by Firebase
 
 Happy coding!
+
+# Remember this?
+
+##### Xcode 5
+
+![xcode5](/assets/xcode5.jpg)
+
+##### iOS 7
+
+![iOS 7 vs iOS 6 Home screen](/assets/ios6_vs_ios7_home.jpg)
+
+![iOS 7 vs iOS 6 Messages](/assets/ios6_vs_ios7_messages.jpg)
+
+![iOS 7 vs iOS 6 Mail](/assets/ios6_vs_ios7_mail.jpg)
+
+![iOS 7 vs iOS 6 Multitasking](/assets/ios6_vs_ios7_multitasking.jpg)
+
+##### Mac OS X 10.8 aka Mountain Lion
+
+![Mac OS 10.8 Mountain Lion](/assets/macosxmountainlion.jpg)

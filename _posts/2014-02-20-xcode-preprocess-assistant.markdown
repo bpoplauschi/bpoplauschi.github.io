@@ -8,7 +8,7 @@ tags: [assistant, dev, developer, preprocess tool]
 
 ---
 
-<img style="float: left; margin: 0px 10px 0px 0px" width="50%" src="/assets/xcode_preprocess_assistant.png">
+<img style="float: left; margin: 0px 10px 0px 0px" width="50%" src="/assets/xcode_preprocess_assistant.jpg">
 
 A very cool Xcode feature I can across is **the preprocess assistant**. It basically shows the version of the file you\'re browsing after the preprocessor has expanded all macros.
 
