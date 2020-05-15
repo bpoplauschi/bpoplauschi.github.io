@@ -12,51 +12,7 @@ A few years ago I was wrote about iOS development for a short while. My first ar
 
 
 
-I recently migrated my blog articles to github.io and I'm mentioning this article because this was back in 2013 and boy, how much did our iOS world change since then. 
-
-
-
-Just take a look if you're curious which libraries were popular then.
-
-
-
-As a small recap, back in 2013 (see the end of this article for some photos of those old techs):
-
-#### No Swift
-
-Swift was only a private project inside Apple's secret labs, as it was announced to the public and released only in 2014.
-
-#### iOS 7 and OS X 10.8 Mountain Lion
-
-The latest iOS version was iOS 7, containing the popular flat / material redesign by Jony Ive
-
-> The new iOS 7 is radically simplified, incredibly flat, colorful, and multi-layered. It is, according to Apple CEO Tim Cook, “the biggest change to iOS since iPhone.” And it may be one of the best things yet designed by Jony Ive
-
-#### Xcode 5
-
-This was an slightly different major update of Xcode, after Xcode 4 was a complete rewrite of our most popular IDE for iOS / Mac OS programming. It doesn't really stand out with some feature (compared to Xcode 4 being a full rewrite and Xcode 6 adding Swift support).
-
-CLANG was introduced with Xcode 4, but GCC was still used by most projects.
-
-#### Popular libraries
-
-- almost everyone remembers using AFNetworking in every project
-- Crashlytics for our crash reporting
-- UI7Kit - this makes me laugh, cause most apps wanted to port the look & feel of iOS 7 to iOS 6 and earlier, UI7Kit was a nice helper for that. Anyone remembers this?
-
-
-
-Anyway, I do think it's interesting to do an update to that article, so here it is.
-
-
-
-Still true (I wrote this in the original article and I think it's still the way I think about reusing code):
-
-> Whether we like it or not, iOS (and MacOS X) development has significantly evolved during the past years. A big part of that is how we write code, reuse it and rely on open source to build great products.
-> So I want to recommend some libraries and frameworks that make developers\' lives easier \...
-
-> The days when a developer reinvents the wheel over and over again should be gone (at least for us iOS developers). One should always know what\'s available on the Internet before starting to do anything (and I\'m referring to non-trivial tasks).
-> Why? You can find a good open source project that does exactly what you need. Even if you don\'t, people who tried to do similar things definitely encountered **issues** you might encounter. Some of them found good **solutions**, other just listed **bottlenecks**, **concerns**. Adding this info to the one you started from determines some boundaries of the potential solution. This global experience is priceless.
+I recently migrated my blog articles to github.io and I'm mentioning this article because this was back in 2013 and boy, how much did our iOS world change since then. For those of you that are curious, you can go to the [Remember This](#Remember_this) for a short time travel back to 2013.
 
 # Dependency management
 
@@ -100,7 +56,7 @@ As a note: if an open source project doesn't support any of CocoaPods, Carthage,
 
 I still enjoy steaks, but I've migrated to more "rare" options :)
 
-# The libraries and frameworks (finally)
+## The libraries and frameworks (finally)
 
 
 
@@ -170,13 +126,51 @@ I still enjoy steaks, but I've migrated to more "rare" options :)
 
 Happy coding!
 
-# Remember this?
+## <a name="Remember_this"></a>Remember this?
 
-##### Xcode 5
+As a small recap, back in 2013 (see the end of this article for some photos of those old techs):
+
+#### No Swift
+
+Swift was only a private project inside Apple's secret labs, as it was announced to the public and released only in 2014.
+
+#### iOS 7 and OS X 10.8 Mountain Lion
+
+The latest iOS version was iOS 7, containing the popular flat / material redesign by Jony Ive
+
+> The new iOS 7 is radically simplified, incredibly flat, colorful, and multi-layered. It is, according to Apple CEO Tim Cook, “the biggest change to iOS since iPhone.” And it may be one of the best things yet designed by Jony Ive
+
+#### Xcode 5
+
+This was an slightly different major update of Xcode, after Xcode 4 was a complete rewrite of our most popular IDE for iOS / Mac OS programming. It doesn't really stand out with some feature (compared to Xcode 4 being a full rewrite and Xcode 6 adding Swift support).
+
+CLANG was introduced with Xcode 4, but GCC was still used by most projects.
+
+#### Popular libraries
+
+- almost everyone remembers using AFNetworking in every project
+- Crashlytics for our crash reporting
+- UI7Kit - this makes me laugh, cause most apps wanted to port the look & feel of iOS 7 to iOS 6 and earlier, UI7Kit was a nice helper for that. Anyone remembers this?
+
+
+
+Anyway, I do think it's interesting to do an update to that article, so here it is.
+
+
+
+Still true (I wrote this in the original article and I think it's still the way I think about reusing code):
+
+> Whether we like it or not, iOS (and MacOS X) development has significantly evolved during the past years. A big part of that is how we write code, reuse it and rely on open source to build great products.
+> So I want to recommend some libraries and frameworks that make developers\' lives easier \...
+
+> The days when a developer reinvents the wheel over and over again should be gone (at least for us iOS developers). One should always know what\'s available on the Internet before starting to do anything (and I\'m referring to non-trivial tasks).
+> Why? You can find a good open source project that does exactly what you need. Even if you don\'t, people who tried to do similar things definitely encountered **issues** you might encounter. Some of them found good **solutions**, other just listed **bottlenecks**, **concerns**. Adding this info to the one you started from determines some boundaries of the potential solution. This global experience is priceless.
+
+### Xcode 5
 
 ![xcode5](/assets/xcode5.jpg)
 
-##### iOS 7
+### iOS 7 vs iOS 6
 
 ![iOS 7 vs iOS 6 Home screen](/assets/ios6_vs_ios7_home.jpg)
 
@@ -186,6 +180,6 @@ Happy coding!
 
 ![iOS 7 vs iOS 6 Multitasking](/assets/ios6_vs_ios7_multitasking.jpg)
 
-##### Mac OS X 10.8 aka Mountain Lion
+### Mac OS X 10.8 aka Mountain Lion
 
 ![Mac OS 10.8 Mountain Lion](/assets/macosxmountainlion.jpg)
