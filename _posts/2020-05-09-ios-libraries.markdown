@@ -8,8 +8,7 @@ tags: [draft]
 
 ---
 
-A few years ago I was wrote about iOS development for a short while. My first article was [Worthy iOS libraries](2013/11/06/ios-libraries.html).
-
+A few years ago I was wrote about iOS development for a short while. My first article was [Worthy iOS libraries](../../../2013/11/06/ios-libraries.html).
 
 
 I recently migrated my blog articles to github.io and I'm mentioning this article because this was back in 2013 and boy, how much did our iOS world change since then. For those of you that are curious, you can go to the [Remember This](#Remember_this) for a short time travel back to 2013.
