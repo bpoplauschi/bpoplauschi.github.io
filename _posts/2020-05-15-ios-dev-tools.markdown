@@ -41,7 +41,7 @@ I do almost all my coding (Swift and Obj-C) in Xcode and all the rest in Sublime
 
    > A simple, decentralized dependency manager for Cocoa
 
-I will keep this article short and write a more detailed article about CocoaPods vs SPM vs Carhage and how to choose one vs the other.
+I will keep this article short and write a more detailed article about CocoaPods vs SPM vs Carthage and how to choose one vs the other.
 
 For now, I use CocoaPods in all my projects for the abilities to customize the install flow and to pick static vs dynamic linking for each dependency.
 
@@ -105,7 +105,7 @@ Charles is a tool that comes very handy when debugging a networking component or
 
 5. **[SourceTree](http://www.sourcetreeapp.com/)** - git, mercurial, svn (svn via git) client
 
-Over the last years, I started working more and more with git (almost all projects are git hosted) and GitHub, as it's a very powerfull dev platform with a lot of integrations (like CI toos, ...). GitLab and BitBucket are good alternatives that offer free private repos (where GitHub only offers free open-source repos and you need to pay for the private ones).
+Over the last years, I started working more and more with git (almost all projects are git hosted) and GitHub, as it's a very powerful dev platform with a lot of integrations (like CI tools, ...). GitLab and BitBucket are good alternatives that offer free private repos (where GitHub only offers free open-source repos and you need to pay for the private ones).
 GitLab is a company I follow and admire, they have a very interesting trajectory and have always been a "remote" company with high standards.
 
 ### **Continuous Integration**
@@ -155,8 +155,8 @@ If you want to keep your Interface Builder files clean and without issues, I als
 
    > The easiest way to automate building and releasing your iOS and Android apps
 2.  [Nomad CLI](http://nomad-cli.com/)
-    1.  CUPERTINO - Automate administrative tasks that you would normally have to do through the Apple Dev Center website
-    2.  HOUSTON Send push notifications from the command line
-    3.  DUBAI Generate Passbook .pkpass files with ease
-    4.  VENICE Secure your In-App-Purchases
-    5.  SHENZHEN Create development builds and then distribute them via TestFlight, HockeyApp, Amazon S3, or FTP
+    1. `CUPERTINO` - Automate administrative tasks that you would normally have to do through the Apple Dev Center website
+    2. `HOUSTON` - Send push notifications from the command line
+    3. `DUBAI` - Generate Passbook .pkpass files with ease
+    4. `VENICE` - Secure your In-App-Purchases
+    5. `SHENZHEN` - Create development builds and then distribute them via TestFlight, HockeyApp, Amazon S3, or FTP
