@@ -4,11 +4,28 @@ title: About
 permalink: /about/
 ---
 
-Based on my last years of experience, I think I can call me an Objective-C developer passionate about iOS and Mac OS technologies, community and much more. I enjoy contributing to open source (I\'m a maintainer for projects like [SDWebImage](https://github.com/rs/SDWebImage) or [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack)).
 
-I can\'t say I\'m writing the best iOS blog, I can definitely say I will write an honest blog, mostly based on my experience.
 
-You can find me:
+### Who am I
 
-- [Github](https://github.com/bpoplauschi)
-- [LinkedIn](http://www.linkedin.com/in/bpoplauschi)
+I am an experienced software developer, I live and work in Cluj-Napoca, Romania and for the past 10+ years I've been doing iOS apps development.
+
+### Passion for development
+
+I'm passionate about the Swift and Objective-C languages, code architecture and ways to write clean code, how to apply automated tools in all the aspects of the development cycle (coding, testing, documenting, delivering, ...).
+
+### Me and open source
+
+I'm a big fan of open source projects and I owe a lot of my experience to contributing to open source. Ever since I became a core member of projects like [SDWebImage](https://github.com/rs/SDWebImage) or [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack), I was constantly exposed to developers with different backgrounds, different cultures and many many issues :) Trying to help them was a big challenge and offered me occasions to learn different things that I would have never thought about while just developing apps. Plus you get a great feeling when seeing how many people actually use that project and that they enjoy it.
+
+### Giving something back
+
+Over those years, I learned a lot from many many people, so this blog is an attempt to give some of that back. 
+
+I do believe our journeys makes each one of us expert in some area and we can always learn something from anyone.
+
+Plus, if you want to really learn about something, you just need to start writing about it :)
+
+### More info
+
+If you want to know more about me, see my [Github](https://github.com/bpoplauschi) or [LinkedIn](http://www.linkedin.com/in/bpoplauschi) profiles.
