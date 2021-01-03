@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Staying up to date with the iOS dev community"
+title:  "Staying up to date with the iOS dev community (v1)"
 date:   2015-04-08 14:16:00 +0300
 categories: []
 

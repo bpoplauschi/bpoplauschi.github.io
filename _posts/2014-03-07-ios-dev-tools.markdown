@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Worthy iOS development tools"
+title:  "Worthy iOS development tools (v1)"
 date:   2014-03-07 13:53:41.000000000 +02:00
 categories: 
 tags: [Alcatraz, analytics, AppCoode, Araxis Merge, coding style, crash, Crashlytics, debug, dependency, design, dev, developer, diff, GIMP, Git, Github, IDE, Kaleidoscope, merge, Nomad CLI, Objective Clean, plugins, Pony Debugger, Reveal, SourceTree, Sublime, tool, VVDocumenter]
