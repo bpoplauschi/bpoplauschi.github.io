@@ -71,12 +71,15 @@ don't use nested try / catch
 
 avoid code duplication, in some cases using lamdas where we can't do it otherwise
 
-
+### Proving algorithms are correct
 
 Dijkstra worked on mathematically proving software is correct. (attribution, selection if-else, loops). Can't prove algorithms are correct if they use gotos
 
 Any algorithm can be expressed using attribution, selection and loop
 
-
-
 https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
+
+# Sources
+
+- [x] Clean Code - Uncle Bob / Lesson 1 https://www.youtube.com/watch?v=7EmboKQH8lM
+- [ ] 
