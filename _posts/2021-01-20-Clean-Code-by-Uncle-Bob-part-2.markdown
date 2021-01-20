@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Clean Code - by Uncle Bob - part 2"
-date:   2021-01-19 20:00:00 +0300
+date:   2021-01-20 20:00:00 +0300
 categories: []
 
 ---
@@ -16,79 +16,78 @@ The purpose of comments is to explain code that cannot explain itself.
 
 ### Schindler's list
 
-Nothing can be quite so helpful as a good comment.
-Nothing can be quite so obscure as a bad comment.
+Nothing can be quite as helpful as a good comment.
+Nothing can be quite as obscure as a bad comment.
 Comments are not "pure good".
 
 ### Comments are a last resort
 
-The proper use of comments is:
-
-- to compensate for our failure to express ourselves in code.
-
+The proper use of comments is: __to compensate for our failure to express ourselves in code__.
 Every use of a comment represents a failure.
+So don't comment _first_. Try everything else, then comment as a _last resort_.
 
-- So don't comment _first_. Try everything else, then comment as a _last resort_.
+### Comments lie
 
-### Comments lie.
+- Not always
+- Not intentionally
+- But they silently rot
+- They migrate
 
-- Not always.
-- Not intentionally.
-- But they silently rot.
-- They migrate.
-
-IDE's usually make them almost hidden.
+IDE's usually display comments in a faded non-evident color, so they are easy to ignore.
 They get desynchronized from the code and can lead to more confusion.
-Delete comments when they are no longer necesarry (code is clear enough).
+Delete comments when they are no longer necessary (code is clear enough).
 
 ### Explain yourself in code
 
-```
+```swift
 // Check to see if the employee is eligible for full benefits
-if (((employee.flags & HOURLY_FLAG) > 0) && (employee.age > 65)) {
+if ((employee.flags & HOURLY_FLAG) > 0) && (employee.age > 65) {
     // ...
 }
 ```
 
 VS
 
-```
-if (employee.isEligibleForFullBenefits()) {
+```swift
+if employee.isEligibleForFullBenefits() {
     // ...
 }
 ```
 
-Preffer using the name of variables and functions to explain the code.
+Prefer using the name of variables and functions to explain the code.
+
+------
 
 ### Acceptable comments
 
 #### Copyrights
 
-```
+```swift
 //  Created by John McClane on 01/01/2020.
 //  Copyright © 2020 Company. All rights reserved.
 ```
 
 #### Informative comments
 
-- this is useful, but it would be better if the function was renamed to `responderBeingTested`
-
-```
+```swift
 // Returns an instance of the Responder being tested
-protected abstract Responder responderInstance();
+static func responderInstance() -> Responder
 ```
 
+- this is useful, but it would be better if the function was renamed to `responderBeingTested`
 - acceptable because it's using the Singleton design pattern
-- a better example of an informative comment
+- a better example of an informative comment is a comment explaining what a regular expression does (Java)
 
-```
+```java
 // format matched hh:mm:ss EEE, MMM dd, yyyy
 Pattern timeMatcher = pattern.compile("\\d*:\\d*:\\d* \\w*, \\w* \\d*, \\d*");
 ```
 
+- note: this comment actually lies, since the expression doesn't match only the format in the comment
+
 #### Explanation of intent
 
-```
+```java
 public int compareTo(Object o) {
     if (o instanceOf WikiPagePath) {
         // ...
@@ -97,7 +96,7 @@ public int compareTo(Object o) {
 }
 ```
 
-```
+```java
 // This is our best attempt to get a race condition
 // by creating large number of threads.
 for (int i = 0; i < 1000; i++) {
@@ -112,7 +111,7 @@ for (int i = 0; i < 1000; i++) {
 
 #### Warning of consequences
 
-```
+```java
 // Don't run unless you have some time to kill.
 public void _testWithReallyBigFile() throws Exception {
     writeLinesToFile(10000000);
@@ -124,18 +123,19 @@ public void _testWithReallyBigFile() throws Exception {
 }
 ```
 
-```
+```java
 public static SimpleDateFormat makeLogFormat() {
     // SimpleDateFormat is not thread safe, so we need to create each instance independently
     return new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z");
 }
 ```
 
-#### Todo comments
+#### TODO comments
 
-- todos are nice, but it's recommended not to check them in, so fix them before
+- `TODO`s are a nice IDE feature, but it's recommended not to check them in, so fix them before
+- otherwise, they become `DONTDO`s
 
-```
+```java
 private SimpleResponse makeResponseWithXML(Document doc) throws Exception {
     // TODO MdM Should probably use a StreamedResponse
     ByteArrayOutputStream output = new ByteArrayOutputStream();
@@ -145,7 +145,7 @@ private SimpleResponse makeResponseWithXML(Document doc) throws Exception {
 
 #### Amplification
 
-```
+```java
 String listItemContent = match.group(3).trim();
 // the trim is real important. It removes the starting
 // spaces that could cause the item to be recognized
@@ -154,16 +154,15 @@ String listItemContent = match.group(3).trim();
 
 #### Javadocs in publis APIs
 
+Javadocs is just an example, this applies to any documentation format that comes with public APIs (of a library / framework) and is used to generate a documentation set (like HTML).
+
+------
+
 ### Bad comments
 
 #### Mumbling
 
-- What does this mean?
-- Who loads the defaults?
-- Were they previously loaded or is that yet to come?
-- Was the author trying to remind himself to do it later?
-
-```
+```java
 public void loadProperties(String propertiesLocation) {
     try {
         String propertiesPath = propertiesLocation + "/" + PROPERTIES_FILE;
@@ -175,11 +174,16 @@ public void loadProperties(String propertiesLocation) {
 }
 ```
 
+- what does this mean?
+- who loads the defaults?
+- were they previously loaded or is that yet to come?
+- was the author trying to remind himself to do it later?
+
 #### Redundant comments
 
 - it takes longer to read and understand the comment than it takes to read and understand the code
 
-```
+```java
 // Utility method that returns when this.closed is true. Throws an exception
 // if the timeout is reached.
 public synchronized void waitForClose(final long timeoutMillis) throws Exception {
@@ -195,7 +199,7 @@ public synchronized void waitForClose(final long timeoutMillis) throws Exception
 
 - redundant comments (from Tomcat)
 
-```
+```java
 /** The child Containers belonging to this Container, keyed by name. */
 protected HashMap children = new HashMap();
 
@@ -212,9 +216,9 @@ protected LifecycleSupport lifecycle = new LifecycleSupport(this);
 
 - it is just plain silly to have a rule that says that every function must have a javadoc,
 - or every variable must have a comment
-- Comments like these clutter the code and propagate lies, confusion, and disorganization.
+- comments like these clutter the code and propagate lies, confusion, and disorganization.
 
-```
+```java
 /**
  * @param title The title of the CD
  * @param author The author of the CD
@@ -231,21 +235,22 @@ public void addCD(String title,
 
 #### Journal comments
 
-```
-* Changes (from 11-Oct-2001)
-* --------------------------
-* 11-Oct-2001 : Re-organised the class and moved it to new package com.jrefinery.date (DG);
-* 05-Nov-2001 : Added a getDescription() method, and eliminated NotableDate class (DG);
-* 12-Nov-2001 : IBD requires setDescription() method, now that NotableDate class is gone (DG); Changed getPreviousDayOfWeek(),
-getFollowingDayOfWeek() and getNearestDayOfWeek() to correct bugs (DG);
-* 05-Dec-2001 : Fixed bug in SpreadsheetDate class (DG);
+```java
+/**
+ * Changes (from 11-Oct-2001)
+ * --------------------------
+ * 11-Oct-2001 : Re-organised the class and moved it to new package com.jrefinery.date (DG);
+ * 05-Nov-2001 : Added a getDescription() method, and eliminated NotableDate class (DG);
+ * 12-Nov-2001 : IBD requires setDescription() method, now that NotableDate class is gone (DG); Changed getPreviousDayOfWeek(), getFollowingDayOfWeek() and getNearestDayOfWeek() to correct bugs (DG);
+ * 05-Dec-2001 : Fixed bug in SpreadsheetDate class (DG);
+ */
 ```
 
 - this is why we have source code control systems
 
 #### Noise comments
 
-```
+```java
 /**
  * Default constructor.
  */
@@ -253,12 +258,12 @@ protected AnnualDateRule() {
 }
 ```
 
-- These comments aren't just redundant, they are noisy. So we learn to ignore them
-- After a while our eyes don't even see them.
+- these comments aren't just redundant, they are noisy. So we learn to ignore them
+- after a while our eyes don't even see them.
 
 #### Scary noise
 
-```
+```java
 /** The name. */
 private String name;
 
@@ -272,13 +277,13 @@ private String licenseName;
 private String info;
 ```
 
-- This was taken from a popular open-source framework.
-- Clearly noisily redundant.
-- Now read it again more carefully.
+- this was taken from a popular open-source framework.
+- clearly noisily redundant.
+- now read it again more carefully.
 
 #### Use explanatory code, not comments
 
-```
+```java
 // does the module from the global list <mod>
 // depend on the subsystem we are part of?
 if (smodule.getDependSubsystems().contains(subSysMod.getSubSystem())) {
@@ -286,9 +291,9 @@ if (smodule.getDependSubsystems().contains(subSysMod.getSubSystem())) {
 }
 ```
 
-- Extract variables to explain things
+- extract variables to explain things
 
-```
+```java
 ArrayList<Module> moduleDependees = smodule.getDependSubsystems();
 Module ourSubSystem = subSysMod.getSubSystem();
 if (moduleDependees.contains(ourSubSystem)) {
@@ -298,16 +303,16 @@ if (moduleDependees.contains(ourSubSystem)) {
 
 #### Position markers
 
-```
+```java
 // ------------------------------ Instance Variables
 ```
 
-- These are usually pure clutter.
-- Banners are startling and obvious _only if_ you don'y see them very often.
+- these are usually pure clutter.
+- banners are startling and obvious _only if_ you don'y see them very often.
 
 #### Closing Brace Comments
 
-```
+```java
 if ((result < 1) || (result > 12)) {
     for (int i = 0; i < monthNames.length; i++) {
         if (s.equals(shortMonthNames[i])) {
@@ -322,12 +327,12 @@ if ((result < 1) || (result > 12)) {
 } // if
 ```
 
-- This is a noisy bad habit.
-- Shorten your functions instead.
+- this is a noisy bad habit.
+- shorten your functions instead.
 
 #### Attributions and bylines
 
-```
+```java
 /* Added by Rick */
 ```
 
@@ -335,10 +340,10 @@ if ((result < 1) || (result > 12)) {
 
 #### Commented out code
 
-- Few practices are as odious.
-- Don't do this!
+- few practices are as odious.
+- don't do this!
 
-```
+```java
 this.bytesPos = writeBytes(pngIdBytes, 0);
 //hdrPos = bytePos;
 writeHeader();
@@ -349,7 +354,7 @@ writeResolution();
 
 #### HTML in comments
 
-```
+```java
 /**
 * Task to run fit tests.
 * This task runs fitnesse tests and publishes the results.
@@ -375,7 +380,7 @@ writeResolution();
 
 #### Non-local information
 
-```
+```java
 /**
  * Port on which fitnesse would run. Defaults to <b>8082</b>.
  */
@@ -384,8 +389,8 @@ public void setFitnessePort(int fitnessePort) {
 }
 ```
 
-- If you must write a comment, then make sure it describes the code it appears near.
-- Where is the `8082` code?
+- if you must write a comment, then make sure it describes the code it appears near.
+- where is the `8082` code?
 
 ## Sources
 
