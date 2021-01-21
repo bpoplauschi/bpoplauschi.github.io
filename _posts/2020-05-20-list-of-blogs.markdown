@@ -2,6 +2,7 @@
 layout: post
 title:  "Staying up to date with the iOS dev community (v2)"
 date:   2020-05-20 10:30:00 +0300
+comments_id: 10
 categories: []
 
 ---
