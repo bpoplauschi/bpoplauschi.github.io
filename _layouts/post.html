@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<!-- Inspired from https://aristath.github.io/blog/static-site-comments-using-github-issues-api-->
+<!-- And https://www.aleksandrhovhannisyan.com/blog/jekyll-comment-system-github-issues/-->
+
+<section class="intro">
+
+	<div class="wrap">
+
+		<h1 style="font-size:40px;">{{ page.title }}</h1>
+		<p>{{ page.date | date_to_string }}</p>
+
+	</div>
+
+</section>
+
+<section class="single">
+
+	<div class="wrap">
+
+		{{ page.content }}
+		<p style="font-size:14px;">Tags: {{ page.tags | join }}</p>
+
+		<hr/>
+
+		{% if page.comments_id %}
+			{% include comments.html issue_id=page.comments_id %}
+		{% endif %}
+	</div>
+
+</section>

@@ -2,6 +2,7 @@
 layout: post
 title:  "iOS image caching. Libraries benchmark (SDWebImage vs FastImageCache)"
 date:   2014-03-21 12:26:18.000000000+02:00
+comments_id: 5
 categories: 
 tags: [AFNetworking, background, cache, caching, decompression, disk, FastImageCache, Haneke, image, memory, SDWebImage, TMCache]
 

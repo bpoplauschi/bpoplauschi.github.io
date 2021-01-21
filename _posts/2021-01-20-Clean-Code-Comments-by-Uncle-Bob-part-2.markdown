@@ -2,6 +2,7 @@
 layout: post
 title:  "Clean Code - Comments - by Uncle Bob - part 2"
 date:   2021-01-20 20:00:00 +0300
+comments_id: 12
 categories: []
 
 ---

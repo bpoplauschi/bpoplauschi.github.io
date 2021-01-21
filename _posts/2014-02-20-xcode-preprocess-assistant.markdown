@@ -2,6 +2,7 @@
 layout: post
 title:  "Xcode preprocess assistant"
 date:   2014-02-20 12:20:46.000000000+02:00
+comments_id: 3
 categories: 
 tags: [assistant, dev, developer, preprocess tool]
 
@@ -25,6 +26,4 @@ Now, why is this useful?
 *Alternative: `Product | Perform Action | Preprocess "YourClassName.m"`*
 
 My old days of CodeWarrior development make me think about what great job has Apple done with their dev tools.
-
-![xcode\_preprocess\_assistant](/assets/xcode_preprocess_assistant.png?)
 
