@@ -4,7 +4,7 @@ title:  "Clean Code - Naming - by Uncle Bob - part 3"
 date:   2021-01-30 14:00:00 +0300
 comments_id: 14
 categories: []
-
+tags: [CleanCode]
 ---
 
 One of my best sources for learning how to write clean code is the content from Robert C. Martin aka "Uncle Bob". While studying his free "Clean Code - Uncle Bob / Lessons" on YouTube, I took notes and decided to share those notes, so others can benefit from them.
