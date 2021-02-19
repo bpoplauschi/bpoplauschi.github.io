@@ -9,7 +9,7 @@ tags: [CleanCode]
 
 One of my best sources for learning how to write clean code is the content from Robert C. Martin aka "Uncle Bob". While studying his free "Clean Code - Uncle Bob / Lessons" on YouTube, I took notes and decided to share those notes, so others can benefit from them.
 
-To be clear, all the content belongs to Robert C. Martin, I merely summarised the content and updated the code examples for Swift.
+To be clear, all the content belongs to Robert C. Martin, I merely summarized the content and updated the code examples for Swift.
 
 ## Uncle Bob, your new CTO
 
@@ -23,13 +23,13 @@ Robert Martin proposes a series of Expectations, through which he hopes to insti
 
 People now regularly download and use betas. :) Beta software means code that probably doesn't work well / as expected. It definitely has bugs. Betas should be used only in limited cases.
 
-Robert Martin's expectation is that we only ship code __we know it works__. It should have the highest quality level you can deliver. It should be clean, tested, well organised. Everybody expects that. 
+Robert Martin's expectation is that we only ship code __we know it works__. It should have the highest quality level you can deliver. It should be clean, tested, well organized. Everybody expects that. 
 
 Example: when you buy a car, you expect it to work, to have been properly tested and you are going to complain bitterly if even the smallest thing doesn't work.
 
 ### 2. We will always be ready
 
-Agile = system is in a deployable / shipable state after every iteration / sprint.
+Agile = system is in a deployable / shippable state after every iteration / sprint.
 The system is ready, even if it doesn't have enough features to deploy (that is a business decision).
 Ready to deploy = all the testing is done, all the documentation is done, the set of features is done.
 If you are not deployable at the end of the sprint, you are not doing Agile.
