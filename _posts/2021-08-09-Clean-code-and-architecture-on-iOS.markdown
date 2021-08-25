@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Clean Code and Architecture on iOS"
-date:   2021-08-09 15:00:00 +0300
+date:   2021-08-25 15:00:00 +0300
 categories: []
-tags: []
+tags: [Clean Code, SOLID, Clean Architecture]
 ---
 
 # Clean Code and Architecture on iOS
@@ -22,14 +22,17 @@ How do you get changeable software?
 - you keep it clean
 - you better have a really good suite of tests
 
-## Robert C Martin
+## Who is Robert C Martin
 
-- who is Robert C Martin
-- his quest to answer this question and establish industry standards
-- see The Clean Coder, Clean Code, Clean Architecture
-- what makes a professional in other fields: medicine, research, sports? They ahdere to a clear work guideline, have rules, ethics and comitees that verify their output
-- addresses generic topics about professional software development
-- these principles are applied for iOS in detail in the [iOS Lead Essentials program](https://iosacademy.essentialdeveloper.com/p/ios-lead-essentials/)
+**Robert Cecil Martin** colloquially called "Uncle Bob" is an American software engineer, instructor, and best-selling author. He is most recognized for developing many software design principles and for being a founder of the influential [Agile Manifesto](https://en.wikipedia.org/wiki/Agile_Manifesto).
+
+He's had a substantial role in stating the SOLID principles.
+
+He's authored several books, among which The Clean Coder, Clean Code, Clean Architecture.
+
+Robert Martin had a continuous quest for what Clean code is and to establish industry standards for Software Development.
+
+Many of Robert Martin's teachings are applied for iOS in detail in the [iOS Lead Essentials program](https://iosacademy.essentialdeveloper.com/p/ios-lead-essentials/).
 
 ## What is clean code
 
@@ -615,17 +618,3 @@ I recommend you:
 - [Design Patterns by Gamma, Johnson, Vlissides, Helm](https://www.goodreads.com/book/show/85009.Design_Patterns)
 - [Clean Architecture by Robert C. Martin](https://www.goodreads.com/book/show/18043011-clean-architecture)
 - [Pro Git by Scott Chacon](https://www.goodreads.com/book/show/6518085-pro-git)
-
-
-
-# TO BE REVIEWED
-
-Good summary: https://medium.com/swlh/the-must-know-clean-code-principles-1371a14a2e75
-
-For example on Comments:
-
-- Comments are difficult to maintain and don’t tell the truth about the code, so try to avoid it. They are almost always out of date.
-- The code is the best documentation.
-- Don’t be redundant.
-- Avoid unnecessary comments (most of all).
-- Use only as a clarification of code.
