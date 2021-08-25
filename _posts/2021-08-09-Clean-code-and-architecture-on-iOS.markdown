@@ -48,7 +48,7 @@ Many of Robert Martin's teachings are applied for iOS in detail in the [iOS Lead
 > Indeed, the ratio of time spent reading versus writing is well over 10 to 1. We are constantly reading old code as part of the effort to write new code. …[Therefore,] making it easy to read makes it easier to write. 
 > -- Robert C. Martin
 
-![clean-code-image](../assets/clean-code-image.png)
+![clean-code-image](/assets/clean-code-image.png)
 
 ## Principles of clean code
 
@@ -411,7 +411,7 @@ There are different variations of architectures that are considered clean, but t
 
   > In fact, your business rules don't know anything at all about the interfaces to the outside world.
 
-![clean-architecture](../assets/clean-architecture.jpeg)
+![clean-architecture](/assets/clean-architecture.jpeg)
 
 ## SOLID Principles
 
