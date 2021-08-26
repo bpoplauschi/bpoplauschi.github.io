@@ -6,8 +6,6 @@ categories: []
 tags: [Clean Code, SOLID, Clean Architecture]
 ---
 
-# Clean Code and Architecture on iOS
-
 ## What is Software
 
 > “Software” is a compound word = “soft” (changeable) + “ware” (product).
@@ -69,11 +67,54 @@ There's a catch: duplication is usually the enemy, but similar (even identical c
 
 Example: the representation of the API response (that changes when the API schema changes) and the business model that your core uses (that changes when the business requirements change). Even though they might start as duplicates, it's good to have them separate so we can protect our business rules from API schema changes (otherwise on any change like that, we'll have many changes to apply to other layers of the code).
 
-###  ? [**YAGNI**](https://en.wikipedia.org/wiki/You_aren't_gonna_need_it): You Aren't Gonna Need It. 
-A developer should not add functionality unless deemed necessary. YAGNI is part of the Extreme Programming (XP) methodology.
+```swift
+struct FeedItem {
+    let title: String
+    let createdAt: Date
+}
+
+struct RemoteFeedItem: Decodable {
+    let title: String
+    let created_at: String
+}
+```
 
 ### [**Composition over inheritance**](https://en.wikipedia.org/wiki/Composition_over_inheritance)
-Inheritance is the highest form of coupling, so to achieve low coupling, prefer composition. This doesn not mean avoid polymorphism (which is a strong programming tool), but rather separate responsibilities into small entities that are composed, also keeping them clean of inherited behavior / interface.
+Inheritance is the highest form of coupling, so to achieve low coupling, prefer composition. 
+
+This doesn not mean avoid polymorphism (which is a strong programming tool), but rather separate responsibilities into small entities that are composed, also keeping them clean of inherited behavior / interface.
+
+- inheritance is simply a "is a" relationship, while composition can be expressed as a "has a" relationship
+- using inheritance results in a slower compilation time (since the compiler needs to generate a virtual table for each class that is not final) and also slower at runtime (as it is more costly to identify which function to call)
+- inheritance breaks encapsulation by allowing subclasses to access internal state (details)
+- the biggest advantage of composition is it can be resolved at runtime (you can compose your types diferently depending on platform / environment / ...). Inheritance is resolved at compile time.
+
+```swift
+// inheritance
+class Device {
+    let name: String
+    let operatingSystem: String
+}
+
+class Smartphone: Device {}
+class Computer: Device {}
+
+// composition
+protocol SystemProtocol {
+    var operatingSystem: String { get }
+}
+protocol Nameable {
+    var name: String { get }
+}
+
+struct Smartphone: Nameable, SystemProtocol {
+    var name: String
+    var operatingSystem: String
+}
+struct Camera: Nameable {
+    var name: String
+}
+```
 
 ### Keep things small
 By things I mean all kinds of entities: functions, classes, interfaces (protocols), enums, structs, clojures, etc.
@@ -386,6 +427,14 @@ public final class CoreDataFeedStore {
     }
 }
 ```
+
+### Proper use of access control modifiers
+
+Many projects avoid using access control modifiers and just go with the default one (which currently in Swift is `internal`), but properly using access control has its advantages:
+
+- first of all, they help us better express in code. When you see a type having `private`, `internal` and `public` properties / methods, it's very clear which ones were created to be used by outer layers and types and which are implementation details.
+- testing our types through their public interface only (no use of `@testable import`) keeps the tests decoupled from the production code, allowing us to refactor the internal and private implementations without breaking the public contract
+- it's easier to spot entities that have too many responsibilities by looking at their `public` interface
 
 ## What is Clean architecture
 
