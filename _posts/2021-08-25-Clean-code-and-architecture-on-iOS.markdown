@@ -79,44 +79,7 @@ struct RemoteFeedItem: Decodable {
 }
 ```
 
-### 6d. [**Composition over inheritance**](https://en.wikipedia.org/wiki/Composition_over_inheritance)
-Inheritance is the highest form of coupling, so to achieve low coupling, prefer composition. 
-
-This doesn not mean avoid polymorphism (which is a strong programming tool), but rather separate responsibilities into small entities that are composed, also keeping them clean of inherited behavior / interface.
-
-- inheritance is simply a "is a" relationship, while composition can be expressed as a "has a" relationship
-- using inheritance results in a slower compilation time (since the compiler needs to generate a virtual table for each class that is not final) and also slower at runtime (as it is more costly to identify which function to call)
-- inheritance breaks encapsulation by allowing subclasses to access internal state (details)
-- the biggest advantage of composition is it can be resolved at runtime (you can compose your types diferently depending on platform / environment / ...). Inheritance is resolved at compile time.
-
-```swift
-// inheritance
-class Device {
-    let name: String
-    let operatingSystem: String
-}
-
-class Smartphone: Device {}
-class Computer: Device {}
-
-// composition
-protocol SystemProtocol {
-    var operatingSystem: String { get }
-}
-protocol Nameable {
-    var name: String { get }
-}
-
-struct Smartphone: Nameable, SystemProtocol {
-    var name: String
-    var operatingSystem: String
-}
-struct Camera: Nameable {
-    var name: String
-}
-```
-
-### 6e. Keep things small
+### 6d. Keep things small
 By things I mean all kinds of entities: functions, classes, interfaces (protocols), enums, structs, clojures, etc.
 Small pieces of code are easier to write, maintain and, most importantly, read and understand.
 There are guidelines used to increase readability about what those numbers should be: including max number of lines per function, per file, max characters per line and more.
@@ -127,7 +90,56 @@ Recommendations compiled by Robert Martin:
 - how small should a function be? It should do one thing (like a few lines of code with 1 or a max of 2 levels of indentation)
 - how many arguments should a function have? Ideally 0, 1 and 2 are good, from 3 arguments the function becomes a bit harder to understand and it might be doing too much
 
-### 6f. Choose good names
+### 6e. Command Query Separation
+
+Side effects are changes the state of the system. Functions with side effects (commands) usually come in pairs: `open` / `close`, `malloc` / `free`, `init` / `dealloc`, …
+
+A command aka a function that returns void has side effects, otherwise it would do nothing. 
+A query aka a function that returns a value should have no side effects.
+
+### 6f. Prefer exceptions to error codes or optional returns
+We prefer exceptions to error codes because they are more explicit.
+
+When dealing with `do` / `catch`, we should not add more logic in a function than the `do` / `catch` block, so that function does one thing: handle errors. Recommendation: don’t use nested `do` / `catch`.
+
+See in the following example where the `init` throws instead of returning an optional `CoreDataFeedStore` (which would say nothing about why the API failed).
+
+```swift
+public final class CoreDataFeedStore {
+    private static let modelName = "..."
+    private static let model: NSManagedObjectModel? = ...
+    private let container: NSPersistentContainer
+    private let context: NSManagedObjectContext
+
+    enum StoreError: Error {
+        case modelNotFound
+        case failedToLoadPersistentContainer(Error)
+    }
+
+    public init(storeURL: URL) throws {
+        guard let model = CoreDataFeedStore.model else {
+            throw StoreError.modelNotFound
+        }
+        
+        do {
+            container = try NSPersistentContainer.load(name: CoreDataFeedStore.modelName, model: model, url: storeURL)
+            context = container.newBackgroundContext()
+        } catch {
+            throw StoreError.failedToLoadPersistentContainer(error)
+        }
+    }
+}
+```
+
+### 6g. Proper use of access control modifiers
+
+Many projects avoid using access control modifiers and just go with the default one (which currently in Swift is `internal`), but properly using access control has its advantages:
+
+- first of all, they help us better express in code. When you see a type having `private`, `internal` and `public` properties / methods, it's very clear which ones were created to be used by outer layers and types and which are implementation details.
+- testing our types through their public interface only (no use of `@testable import`) keeps the tests decoupled from the production code, allowing us to refactor the internal and private implementations without breaking the public contract
+- it's easier to spot entities that have too many responsibilities by looking at their `public` interface
+
+## 7. Choosing good names
 Names are everywhere (files, directories, programs, classes, variables, arguments, …).
 Because we do so much of it … we’d better do it well!
 
@@ -135,18 +147,18 @@ It is said that choosing good names is one of the most difficult tasks when writ
 
 The rules for naming recommended by Uncle Bob are based on Tim Ottinger’s Rules for Variable and Class Naming:
 
-#### i. Reveal your intent
+### 7a. Reveal your intent
 - a name that requires a comment does not reveal it's intent: `var d: Int // elapsed time in days`
 - the name of a variable should tell us the significance of what that variable contains `var elapsedTimeInDays: Int`
 
-#### ii. Use consistency when naming entities
+### 7b. Use consistency when naming entities
 
 - it's confusing to see functions with get, retrieve, load, fetch, ...
 
-#### iii. Rule for variable names
+### 7c. Rule for variable names
 "A variable name should be proportional to the size of the scope that contains it."
 
-#### iv. Short scope
+### 7d. Short scope
 - if the scope is very small, like 1 line, a single letter name is fine
 ```swift
 switch (lhs, rhs) {
@@ -178,7 +190,7 @@ struct FeedItem {
 func save(_ feed: [FeedItem], completion: @escaping (SaveResult) -> Void)
 ```
 
-#### v. Large scope
+### 7e. Large scope
 - long scopes need long names
 - global variables have a huge scope, so they should probably be very long
 ```swift
@@ -186,7 +198,7 @@ func save(_ feed: [FeedItem], completion: @escaping (SaveResult) -> Void)
 public let testsDefaultTimeoutInSeconds: Int = 1
 ```
 
-#### vi. Rule for function names
+### 7f. Rule for function names
 "The name of a function is inversely proportional to the size of the scope that contains it."
 - as the scope gets larger, we want to shrink the name because it will be called a lot, from all over the place. 
 - also, if the function has a larger scope, it's probably dealing with a high-level abstraction
@@ -226,7 +238,7 @@ public final class DataManager: DataManagerInterface {
 }
 ```
 
-#### vii. Rule for class names
+### 7g. Rule for class names
 "The name of a class is inversely proportional to the size of the scope that contains it."
 - classes at the global scope have one word names
 - derived classes have multiple word names
@@ -239,7 +251,7 @@ final class CodableFeedStore: FeedStore {}
 final class InMemoryFeedStore: FeedStore {}
 ```
 
-#### viii. Code Example
+### 7h. Code Example
 ```java
 public List<int[]> getThem() {
     List<int[]> list1 = new ArrayList<int []>();
@@ -266,7 +278,7 @@ public List<int[]> getFlaggedCells() {
 - now we know the list represents the game board and the function gets all the cells from a list that have the status flagged
 - a good naming system will tell you more than the context of the function
 
-#### ix. Disambiguate
+### 7i. Disambiguate
 - What's the difference between the following?
 ```
 XYZControllerForEfficientHandlingOfStrings
@@ -282,11 +294,11 @@ else
     l = 01;
 ```
 
-#### x. Avoid convenient mispellings
+### 7j. Avoid convenient mispellings
 - `klass` vs `aClass` or `theClass`
 - avoid situations where the code will break if a spelling error is fixed
 
-#### xi. Number series
+### 7k. Number series
 - the opposite of intentional naming
 - provide no clue into the author's intent
 ```java
@@ -305,7 +317,7 @@ public static void copyChars(char source[], char destination[]) {
 }
 ```
 
-#### xii. Noise words
+### 7l. Noise words
 - suffixes
 ```swift
 var product: Product
@@ -321,7 +333,7 @@ var aProduct: Product
 var theProduct: Product
 ```
 
-#### xiii. Distinguish names meaningfully
+### 7m. Distinguish names meaningfully
 - how to know which function to call
 ```swift
 func getActiveAccount() -> Account
@@ -329,11 +341,11 @@ func getActiveAccounts() -> [Account]
 func getActiveAccountInfo() -> [Account]
 ```
 
-#### xiv. Make sure names are pronounceable
+### 7n. Make sure names are pronounceable
 - Imagine you have the variable `genymdhms` (Generation date, year, month, day, hour, minute and second) and imagine a conversation where you need talk about this variable calling it "gen why emm dee aich emm ess".
 - that should be renamed to `generationTimestamp`
 
-### 6g. Comments
+## 8. Comments
 
 The purpose of comments is to explain code that cannot explain itself.
 
@@ -358,11 +370,11 @@ if employee.isEligibleForFullBenefits() {
 
 Acceptable comments: copyrights, informative comments, warning of consequences, documentation comments in public APIs
 
-#### TODOs
+### 8a. TODOs
 
 `TODO`s are a nice IDE feature, but it’s recommended not to check them in, so fix them before, otherwise, they become `DONTDO`s
 
-#### Use explanatory code instead of comments
+### 8b. Use explanatory code instead of comments
 
 ```java
 // does the module from the global list <mod>
@@ -382,61 +394,12 @@ if (moduleDependees.contains(ourSubSystem)) {
 }
 ```
 
-#### Commented out code
+### 8c. Commented out code
 
 - few practices are as odious.
 - don’t do this!
 
-### 6h. Command Query Separation
-
-Side effects are changes the state of the system. Functions with side effects (commands) usually come in pairs: `open` / `close`, `malloc` / `free`, `init` / `dealloc`, …
-
-A command aka a function that returns void has side effects, otherwise it would do nothing. 
-A query aka a function that returns a value should have no side effects.
-
-### 6i. Prefer exceptions to error codes or optional returns
-We prefer exceptions to error codes because they are more explicit.
-
-When dealing with `do` / `catch`, we should not add more logic in a function than the `do` / `catch` block, so that function does one thing: handle errors. Recommendation: don’t use nested `do` / `catch`.
-
-See in the following example where the `init` throws instead of returning an optional `CoreDataFeedStore` (which would say nothing about why the API failed).
-
-```swift
-public final class CoreDataFeedStore {
-    private static let modelName = "..."
-    private static let model: NSManagedObjectModel? = ...
-    private let container: NSPersistentContainer
-    private let context: NSManagedObjectContext
-
-    enum StoreError: Error {
-        case modelNotFound
-        case failedToLoadPersistentContainer(Error)
-    }
-
-    public init(storeURL: URL) throws {
-        guard let model = CoreDataFeedStore.model else {
-            throw StoreError.modelNotFound
-        }
-        
-        do {
-            container = try NSPersistentContainer.load(name: CoreDataFeedStore.modelName, model: model, url: storeURL)
-            context = container.newBackgroundContext()
-        } catch {
-            throw StoreError.failedToLoadPersistentContainer(error)
-        }
-    }
-}
-```
-
-### 6j. Proper use of access control modifiers
-
-Many projects avoid using access control modifiers and just go with the default one (which currently in Swift is `internal`), but properly using access control has its advantages:
-
-- first of all, they help us better express in code. When you see a type having `private`, `internal` and `public` properties / methods, it's very clear which ones were created to be used by outer layers and types and which are implementation details.
-- testing our types through their public interface only (no use of `@testable import`) keeps the tests decoupled from the production code, allowing us to refactor the internal and private implementations without breaking the public contract
-- it's easier to spot entities that have too many responsibilities by looking at their `public` interface
-
-## 7. What is Clean architecture
+## 9. What is Clean architecture
 
 There are different variations of architectures that are considered clean, but they all have the following characteristics:
 
@@ -462,9 +425,9 @@ There are different variations of architectures that are considered clean, but t
 
 ![clean-architecture](/assets/clean-architecture.jpeg)
 
-## 8. SOLID Principles
+## 10. SOLID Principles
 
-### 8a. Single Responsibility Principle
+### 10a. Single Responsibility Principle
 > A module should have one, and only one, reason to change.
 
 can be rephrased as
@@ -504,7 +467,7 @@ The simplest and most obvious one is to separate the data from the functions. So
 
 The downside is that now developers need to instantiate and track all 3 classes. A common solution for this dilemma is to use the `Facade` pattern by creating an `EmployeeFacade` that will act as a proxy to each of the dedicated classes.
 
-### 8b. Open / Closed Principle
+### 10b. Open / Closed Principle
 > A software artifact should be open for extension but closed for modification.
 
 OCP is interconnected with SRP and DIP. When we make sure each class has a single responsibility (SRP) and we make it depend on abstractions instead of concrete types (DIP), OCP quickly follows. Now it's easy to create new implementations of the abstractions and inject them without having to change the initial class.
@@ -513,12 +476,12 @@ Ex: enums require changing the client code every time we add / remove a case, so
 
 Example: `FeedViewController` depends on an abstraction `FeedLoader`. Initially during development we can just create a `FakeFeedLoader` that directly returns some data, later on we can add `RemoteFeedLoader`, `LocalFeedLoader`, ... or even combinations of them. But the behavior of the `FeedViewController` class remains the same, but is open for extension.
 
-### 8c. Liskov Substitution Principle
+### 10c. Liskov Substitution Principle
 > Derived classes must be substitutable for their base classes. 
 
 The program should function without issues when using any of the `FeedLoader` implementations above.
 
-### 8d. Interface Segregation Principle
+### 10d. Interface Segregation Principle
 > Make fine grained interfaces that are client specific.
 
 A common violation of ISP is creating interfaces with many functions, some optional or unneeded by their clients.
@@ -549,7 +512,7 @@ protocol LongPressProtocol {
 
 Apple's frameworks often break ISP by having protocols like `UITableViewDataSource` or `UITableViewDelegate` with many methods not needed by most of their clients.
 
-### 8e. Dependency Inversion Principle
+### 10e. Dependency Inversion Principle
 >  Depend on abstractions, not on concretions.
 
 High-level modules should not depend on low-level modules both should depend on Abstractions. (Abstractions should not depend upon details. Details should depend upon abstractions).
@@ -591,7 +554,44 @@ extension SessionManager: FeedLoader {
 }
 ```
 
-## 9. The Main component aka Composition Root
+## 11. [**Composition over inheritance**](https://en.wikipedia.org/wiki/Composition_over_inheritance)
+Inheritance is the highest form of coupling, so to achieve low coupling, prefer composition. 
+
+This doesn not mean avoid polymorphism (which is a strong programming tool), but rather separate responsibilities into small entities that are composed, also keeping them clean of inherited behavior / interface.
+
+- inheritance is simply a "is a" relationship, while composition can be expressed as a "has a" relationship
+- using inheritance results in a slower compilation time (since the compiler needs to generate a virtual table for each class that is not final) and also slower at runtime (as it is more costly to identify which function to call)
+- inheritance breaks encapsulation by allowing subclasses to access internal state (details)
+- the biggest advantage of composition is it can be resolved at runtime (you can compose your types diferently depending on platform / environment / ...). Inheritance is resolved at compile time.
+
+```swift
+// inheritance
+class Device {
+    let name: String
+    let operatingSystem: String
+}
+
+class Smartphone: Device {}
+class Computer: Device {}
+
+// composition
+protocol SystemProtocol {
+    var operatingSystem: String { get }
+}
+protocol Nameable {
+    var name: String { get }
+}
+
+struct Smartphone: Nameable, SystemProtocol {
+    var name: String
+    var operatingSystem: String
+}
+struct Camera: Nameable {
+    var name: String
+}
+```
+
+## 12. The Main component aka Composition Root
 
 In every system, there is at least one component that creates, coordinates, and oversees the others. We call this the Main Component or, it's also known as the Composition Root pattern.
 
@@ -600,7 +600,7 @@ It's job is to create all the Factories, Strategies, and other global facilities
 
 You can have multiple Main components: one for each configuration, platform or target.
 
-## 10. Frameworks are just details
+## 13. Frameworks are just details
 
 As the Clean Architecture "onion layers" diagram shows, frameworks live at the outer boundary of the system because they are just details.
 Clean systems should not depend on one or more frameworks becase:
@@ -619,7 +619,7 @@ Examples:
 
 Postpone the decision about which framework / library to use for as much as possible - so you have as much info as possible. You can use test doubles (mocks or stubs) and you have a low coupling with the actual framework.
 
-## 11. UI layer patterns - a classical iOS debate
+## 14. UI layer patterns - a classical iOS debate
 
 **MVC**, **MVVM**, **MVP**, **VIPER** are just design patterns for the UI layer. 
 They don't solve the problem of who should handle many other responsibilities like: data access and storage, notifications, navigation and deeplinking, ...
@@ -629,11 +629,11 @@ Indeed, certain patterns are better matches for specific constraints:
 - for example, MVC is better suited for `UIKit` components as they are already built around the `UIViewController` subtypes
 -  MVVM seems to fit better when working with `SwiftUI`
 
-### 12a. The issue of massive components
+### 14a. The issue of massive components
 
 But none of those patterns will protect us from the problem of Massive components. Massive View Controller can quickly become Massive View Model or Massive View Presenter. Clean architecture principles help us better separate our code into components and avoid this issue.
 
-## 12. Handling many 3rd party dependencies
+## 15. Handling many 3rd party dependencies
 It's become very normal that iOS projects have a lot of dependencies, especially 3rd parties. 
 
 - We need a networking component, but not sure what we need from that component? No problem, just add a 3rd party.
@@ -657,7 +657,7 @@ I recommend you:
 - postpone the decision
 - protect from them using inversion of control, otherwise we end up with high coupling (prod + tests) and it's very hard to maintain over time
 
-## 13. References
+## 16. References
 - [iOS Lead Essentials program](https://iosacademy.essentialdeveloper.com/p/ios-lead-essentials/) - Online program meticulously thought out for iOS developers who want to become world-class senior developers and be part of the highest-paid iOS devs in the world. Focuses on key concepts like Swift, TDD, BDD, DDD, Clean Architecture, Design Patterns, Git, Automation, CI/CD, and Modular Design.
 - [The Clean Coder by Robert C. Martin](https://www.goodreads.com/book/show/10284614-the-clean-coder)
 - [Clean Code by Robert C. Martin](https://www.goodreads.com/book/show/3735293-clean-code)
