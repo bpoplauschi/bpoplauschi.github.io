@@ -6,7 +6,7 @@ categories: []
 tags: [SOLID, Clean Architecture]
 ---
 
-This is a continuation of the [Clean Code on iOS post](Clean-Architecture-on-iOS.html), going into the topic of Clean Architecture.
+This is a continuation of the [Clean Code on iOS post](Clean-Code-on-iOS.html), going into the topic of Clean Architecture.
 
 ## 1. Traits of a Clean architecture
 

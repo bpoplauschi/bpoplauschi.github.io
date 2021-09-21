@@ -32,7 +32,7 @@ It's definitely not profitable for a company to own such a codebase, so the ones
 
 The problem with that (besides the obvious) is, without changing our principles, the new codebase will soon have the same issues as the old one.
 
-![only-god-knows](onlyGodknows.jpeg)
+![only-god-knows](/assets/onlyGodknows.jpeg)
 
 ## 2. What is Software
 
@@ -48,7 +48,7 @@ According to Robert Martin:
 
 ## 4. Who is Robert C Martin
 
-![Robert-Martin](RobertMartin.jpg)
+![Robert-Martin](/assets/RobertMartin.jpg)
 
 **Robert Cecil Martin** colloquially called "Uncle Bob" is an American software engineer, instructor, and best-selling author. He is most recognized for developing many software design principles and for being a founder of the influential [Agile Manifesto](https://en.wikipedia.org/wiki/Agile_Manifesto).
 
