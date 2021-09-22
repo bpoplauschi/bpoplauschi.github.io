@@ -15,7 +15,7 @@ There are different variations of architectures that are considered clean, but t
 
 - Independent of frameworks
   
-  > The architecture does not depend on the existence of some library of feature-laden software. This allows you to use such frameworks as toosl, rather than forcing you to cram your system into their limited constraints.
+  > The architecture does not depend on the existence of some library of feature-laden software. This allows you to use such frameworks as tools, rather than forcing you to cram your system into their limited constraints.
   
 - Testable
   
@@ -424,7 +424,7 @@ Examples: threading, logging, authentication, analytics, security …
 
 Those concerns are usually spread through the codebase and they are duplicated most of the time.
 
-#### Example - treading
+#### Example - threading
 
 ```swift
 class MainQueueDispatchDecorator: FeedLoader {

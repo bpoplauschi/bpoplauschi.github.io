@@ -15,7 +15,7 @@ A while back, I became passionate about the concepts of Clean Code and Clean Arc
 
 I learned a lot from Robert Martin's books and from the [iOS Lead Essentials program](https://iosacademy.essentialdeveloper.com/p/ios-lead-essentials/).
 
-Why Code Code and Clean Architecture?
+Why Clean Code and Clean Architecture?
 
 - IMO, it’s a fundamental part of building great software
 - It’s agnostic of platform, language, technology
