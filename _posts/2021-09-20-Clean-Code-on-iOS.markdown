@@ -3,6 +3,7 @@ layout: post
 title:  "Clean Code on iOS"
 date:   2021-09-20 08:00:00 +0300
 categories: []
+comments_id: 20
 tags: [Clean Code]
 ---
 
