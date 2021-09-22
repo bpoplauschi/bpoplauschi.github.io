@@ -3,6 +3,7 @@ layout: post
 title:  "Clean Architecture on iOS"
 date:   2021-09-21 08:00:00 +0300
 categories: []
+comments_id: 21
 tags: [SOLID, Clean Architecture]
 ---
 
