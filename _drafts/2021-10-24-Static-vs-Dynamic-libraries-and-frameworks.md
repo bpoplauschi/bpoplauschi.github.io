@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "Static vs Dynamic libraries and frameworks on iOS (and macOS)"
+date:   2021-10-24 08:00:00 +0300
+categories: []
+comments_id: 0
+tags: [static, dynamic, framework, library, linker, iOS, macOS]
+
+---
+
+## Introduction
+
+When building apps on any platform (applies to Apple platforms too), we have to deal with system frameworks, packaging our own code, using 3rd party code and many more. I've seen quite a few developers that work with static and / or dynamic frameworks / libraries, but don't fully understand them, and thus, can't get the best out of them. So I decided to share my knowledge into this article.
+
+Let's take a quick look at how I structured this info:
+
+- Definitions: what is a library, what is a framework, what is linking, what does static linking and dynamic linking mean
+- iOS and macOS differences
+- Implications of choosing static vs dynamic on app binary size and launch time
+- The most common ways to integrate 3rd party code and how static vs dynamic linking applies to them
+- Summary
+
+## What is a library
+
+A library is a collection of non-volatile resources used by computer programs. This can include source code. 
+Most of the libraries we have seen for macOS or iOS contain code (compiled for one or more architectures).
+They look like `lib*.a` files, for example: `libGoogleAnalytics.a ` (you might have used this one).
+
+#### What is the (CPU) architecture
+
+In the context of iOS / macOS compiled binaries, the architecture refers to the CPU architecture. We need to compile our binaries for all the different CPU architectures they will be used on.
+
+Currently, macOS supports two architectures:
+
+- `x86_64` the architecture of Intel's 64-bit CPUs. It is the architecture for all Intel Macs shipped between 2005 and 2021.
+- `arm64` is the architecture used by newer Macs built on Apple Silicon (2020+).
+
+iOS simulators run on macOS, so they use the same architectures.
+
+iOS supported more architectures over time:
+
+- Old iOS devices shipped before 2009 had `armv6` CPUs, which are no longer supported by current iOS SDKs
+- `armv7` an older variation of the 32-bit ARM CPU, as used in the A5 and earlier.
+- `armv7s` being used in Apple's A6 and A6X chips on iPhone 5, iPhone 5C and iPad 4
+- `arm64` is the current 64-bit ARM CPU architecture, as used since the iPhone 5S and later (SE, 6, 7, ...), the iPad Air, Air 2 and Pro, with the A7 and later chips.
+
+You can see the architecture(s) set for an Xcode target by looking at Build Settings -> Architectures (`ARCHS`). It's preset by Xcode to `Standard Architectures` (on Xcode 12.5 and an iOS target, this resolves to `arm64 armv7`).
+
+<img src="../assets/xcode-architectures.png" style="zoom:60%;" align="left"/>
+
+## What is a framework
+
+A framework is a package that can contain resources such as precompiled code(libraries), string files, images, storyboards etc. (if it contains other frameworks, it's called an _umbrella framework_).
+Apple's frameworks are organized into bundles (have a predefined folder structure on disk). They can be accessed via `Bundle` class from code and, unlike most bundle files, can be browsed in the file system (easy for developers to inspect the contents). 
+
+Check out [Apple's Bundle Programming Guide](https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFBundles/BundleTypes/BundleTypes.html#//apple_ref/doc/uid/10000123i-CH101-SW1).
+
+<img src="../assets/framework-example.png" style="zoom:60%;" align="left"/>
+
+*Frameworks* are also bundles ending with `.framework` extension. 
+
+## References
+
+https://docs.elementscompiler.com/Platforms/Cocoa/CpuArchitectures/
