@@ -111,6 +111,27 @@ By choosing to embed a module in your app (Target - General - Frameworks, Librar
 
 <img src="../assets/framework-embed.png" style="zoom:80%;" align="left"/>
 
+### How to find out if a library / framework (3rd party) is static or dynamic
+
+If you are looking at a binary library / framework and want to know if it's a static or dynamic binary, just use `file -I` on the binary.
+Example (static framework) - static binaries are usually marked with ar archive or similar.
+
+```
+file FirebaseAnalytics.framework/FirebaseAnalytics 
+FirebaseAnalytics.framework/FirebaseAnalytics: Mach-O universal binary with 2 architectures: [arm_v7:current ar archive] [arm64:current ar archive]
+FirebaseAnalytics.framework/FirebaseAnalytics (for architecture armv7):	current ar archive
+FirebaseAnalytics.framework/FirebaseAnalytics (for architecture arm64):	current ar archive
+```
+
+Example (dynamic framework) - usually mentioned dynamically linked
+
+```
+file SDWebImage.framework/SDWebImage              
+SDWebImage.framework/SDWebImage: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit dynamically linked shared library x86_64] [arm64:Mach-O 64-bit dynamically linked shared library arm64]
+SDWebImage.framework/SDWebImage (for architecture x86_64):	Mach-O 64-bit dynamically linked shared library x86_64
+SDWebImage.framework/SDWebImage (for architecture arm64):	Mach-O 64-bit dynamically linked shared library arm64
+```
+
 ## Summary of static vs dynamic linking
 
 | Type of linking and platform / Impact | App Size                                                     | App Start Time                                               |
@@ -136,6 +157,68 @@ Let's say you have a module (your own or 3rd party) named `Common` that is used 
 If `FeatureA`, `FeatureB` and `Common` are static libraries / frameworks, you'll see a warning at app runtime in the console `duplicate symbol MY_COMMON_SYMBOL in ... FeatureA and ... FeatureB`. This happens because when linking statically to `Common`, both `FeatureA` and `FeatureB` binaries will contain the symbols from `Common`. So at runtime, the loader will not know which one is should use.
 
 In this case, unless you have other things to consider, making `Common` a dynamic module will solve the problem, as both `FeatureA` and `FeatureB` will just reference `Common`, expecting at runtime to find an implementations for its symbols.
+
+## iOS increased app launch time start when using many dynamic libs / frameworks
+
+I've mentioned using many 3rd party dynamic libraries / frameworks probably leads to an increased app launch time on iOS.
+
+This was detailed in WWDC 2016 Session 406 - Optimizing App Startup Time (I can only find the transcript of that session on [asciiwwdc](https://asciiwwdc.com/2016/sessions/406). Apple explained how each dynamic module adds to the total app launch time and we should keep the number of dynamic modules to a max of 6.
+See [Apple's Reducing Your App’s Launch Time article](https://developer.apple.com/documentation/xcode/reducing-your-app-s-launch-time/) that mentiones all of that, except for an exact number of dynamic frameworks (perhaps over time the 6 limit became harder to keep and, since hardwares evolved, the limit might have increased).
+
+The matter is simple: just test it out. Older Xcode versions required adding `DYLD_PRINT_STATISTICS` to the ENV variables to print stats regarding the app launch time and how much each step took. See [Apple's Logging Dynamic Loader Events](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/LoggingDynamicLoaderEvents.html).
+Looks like this:
+
+```
+Total pre-main time:  95.07 milliseconds (100.0%)
+         dylib loading time:  25.00 milliseconds (26.3%)
+        rebase/binding time:  19.75 milliseconds (20.7%)
+            ObjC setup time:   6.85 milliseconds (7.2%)
+           initializer time:  43.45 milliseconds (45.7%)
+           slowest intializers :
+             libSystem.B.dylib :   8.43 milliseconds (8.8%)
+   libBacktraceRecording.dylib :   9.00 milliseconds (9.4%)
+    libMainThreadChecker.dylib :  22.05 milliseconds (23.1%)
+```
+
+Or you can use Instruments, as explained in [Apple's Reducing Your App’s Launch Time article](https://developer.apple.com/documentation/xcode/reducing-your-app-s-launch-time/).
+
+One thing to consider is something called Cold Start vs Warm Start. A cold start is when you app starts for the 1st time (after a phone reboot) and is usually the slowest start. After that, even if you close the app, the system will cache some of the memory footprint (in case you closed the app by mistake). The next time you start the app will be a faster, warm start.
+So to measure reliably, measure your app launch after a phone reboot (cold start).
+
+If you find your app is taking a long time starting (Apple recommended 500 miliseconds for a seamless user experience), take a look at what is holding your app from launching. It can be many things, as executing some code on the `AppDelegate` or `SceneDelegate` methods, having a huge Launch storyboard, ... If the problem lies with `dylib loading time`, you can look into changing some dynamic libraries / frameworks to static ones.
+
+## Static / dynamic with different integrations techniques
+
+Since nowadays many projects have a lot of 3rd party dependencies, let's look at how these dependency managers work and how we can control their linking related behavior.
+
+### Own targets or projects linked directly
+
+If the targets are in your repo or in other repos, but are linked to your project, you can go in and change the way they are built and linked through Build Settings.
+
+You just need to change the value of the `MACH_O_TYPE` Build Setting between Static Library (`staticlib`) and Dynamic Library (`mh_dylib`).
+
+To change between a library and a framework, you need to change the type of Product the target outputs (not sure how to do that from settings).
+
+<img src="../assets/Mach-O Type.png" style="zoom:80%;" align="left"/>
+
+### CocoaPods
+
+By default, CocoaPods (no mention of `use_frameworks!`) will build and link all the dependencies as static libraries.
+
+If we add `use_frameworks!` to our Podfile, CP will instead build and link the dependencies as dynamic frameworks.
+
+We can use `use_frameworks! :linkage => :static` to make CP build and link dependencies as static frameworks.
+
+NOTE: of course, all these apply to dependencies that CocoaPods builds from sources. If you are referencing a pod that is precompiled, there is no way for CocoaPods to change how that pod is packaged. Most packages distributed as precompiled binaries will be static libraries or static frameworks.
+
+### Swift Package Manager
+
+SPM does not allow any control over how the dependencies are build and linked - they are all static libraries.
+You can, however, specify how to build your own packages via `Package.swift` where you can specify `type: .dynamic`, but of course, this works only if you are the maintainer of that package.
+
+### Carthage
+
+By default, Carthage uses dynamic frameworks to build your dependencies, but there is an option to change them to be static.
 
 ## References
 
