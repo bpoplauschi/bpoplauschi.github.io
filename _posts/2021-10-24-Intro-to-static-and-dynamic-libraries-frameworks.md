@@ -3,7 +3,7 @@ layout: post
 title:  "Introduction to static and dynamic, libraries and frameworks on iOS (and macOS)"
 date:   2021-10-24 08:00:00 +0300
 categories: []
-comments_id: 0
+comments_id: 22
 tags: [static, dynamic, framework, library, linker, iOS, macOS]
 
 ---
