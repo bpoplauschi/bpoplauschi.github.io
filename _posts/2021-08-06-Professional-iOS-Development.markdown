@@ -2,7 +2,7 @@
 layout: post
 title:  "Professional iOS Development"
 date:   2021-08-06 15:00:00 +0300
-comments_id: 24
+comments_id: 25
 categories: []
 tags: [Clean Code, Clean Architecture]
 ---
