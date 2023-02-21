@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduction to static and dynamic, libraries and frameworks on iOS (and macOS)"
+title:  "Introduction to Static vs Dynamic libraries and frameworks on iOS (and macOS)"
 date:   2021-10-24 08:00:00 +0300
 categories: []
 comments_id: 22
