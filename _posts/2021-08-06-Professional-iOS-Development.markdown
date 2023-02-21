@@ -114,12 +114,6 @@ Every professional development team needs a good testing strategy, and we can st
 - Be a craftsman - someone who works quickly, but without rushing, provides reasonable estimates and meets commitments. Know when to say No, but try hard to say Yes.
 - If craftsmanship is your way of life, keep in mind that you cannot force other programmers to become craftsmen.
 
-## Ideas to be mentioned
-- Software definition, it should be easy to change, cost of change should not increase with time
-- MVC, MVVM, MVP, VIPER are just design patterns for the UI code. They don't solve the problem of who should handle many other responsibilities like data access and storage, notifications, navigation and deep linking, ...
-- Low coupling + high cohesion
-- number of 3rd party dependencies → risk. DI principle
-
 ## References
 - [iOS Lead Essentials program](https://iosacademy.essentialdeveloper.com/p/ios-lead-essentials/) - Online program meticulously thought out for iOS developers who want to become world-class senior developers and be part of the highest-paid iOS devs in the world. Focuses on key concepts like Swift, TDD, BDD, DDD, Clean Architecture, Design Patterns, Git, Automation, CI/CD, and Modular Design.
 - [The Clean Coder by Robert C. Martin](https://www.goodreads.com/book/show/10284614-the-clean-coder)
