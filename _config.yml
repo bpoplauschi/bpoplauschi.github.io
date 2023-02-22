@@ -35,8 +35,8 @@ plugins:
   - jekyll-seo-tag
 
 # Google Analytics
-google_analytics: UA-166096098-1
 
+google_analytics: G-BQ7W0SRF54
 issues_repo: bpoplauschi/bpoplauschi.github.io
 
 # Exclude from processing.
