@@ -29,7 +29,7 @@ He has authored a series of books on Clean Code and Architecture.
 ## Professionalism is about taking responsibility
 - Do no harm: don't create bugs (almost impossible, but still...). Analogy: software systems are very complex and thus impossible to be bug-free. But the human body is also incredibly complex, but doctors still take the oath to do no harm
 - QA should find nothing: delivering faulty code is just unprofessional
-- You mush know it works: automated tests
+- You must know it works: automated tests
 - Work ethic: your career is your responsibility (trainings, conferences, books, ... and the time needed to learn)
 - Know your field:
   - design patterns: GOF
