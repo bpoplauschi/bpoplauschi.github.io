@@ -1,11 +1,14 @@
 # Site settings
 title: Bogdan Poplauschi's blog
-description: >- # newlines until "baseurl:"
+description: >- # newline
   Welcome to my personal blog. It contains posts based on my experience in the field of Software Developement and more.
 baseurl: ""
 url: "https://bpoplauschi.github.io"
 
 # User settings
+username: Bogdan Poplauschi
+user_description: >- # newline
+  Staff-level iOS Engineer | Mentor | 16 YOE | Based in Romania (CET) | Available for full-time remote work via LLC(SRL) / contract
 email: bpoplauschi@gmail.com
 twitter_username: null
 github_username:  bpoplauschi

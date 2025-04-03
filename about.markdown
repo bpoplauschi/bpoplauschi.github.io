@@ -6,17 +6,17 @@ permalink: /about/
 
 ### Who am I
 
-As a software developer with over 16 years of experience, I am a seasoned professional.
-For the past 14+ years, I have been developing for Apple platforms (mainly iOS).
+Lead iOS Developer | Mentor | 16+ Years Experience | Clean Code, CI/CD, Automated Testing, Architecture, Dev Efficiency | Based in Romania (CET
 
-### Passion for development
+Experienced Lead iOS Developer with 18 years in software development (16+ on Apple platforms). Passionate about clean code, CI/CD, automated testing, and architecture.
+Proven track record of shipping high-profile apps used by millions, mentoring developers, and leading technical transformations. Extensive open-source experience as lead maintainer of SDWebImage and CocoaLumberjack, two of the most widely used iOS libraries.
 
-For fast and reliable app delivery, I'm passionate about using automated tests, clean code, architecture, and design patterns. I am guided by the principles of continuous improvement and continuous improvement.
-As an Instructor at the Essential Developer iOS Academy, I am currently helping other iOS developers learn these principles and practices.
-
-### My experience with open source
-
-A lot of my experience is due to contributing to open-source projects like SDWebImage or CocoaLumberjack.
+Key Skills & Technologies:
+- iOS Dev: Swift, Objective-C, UIKit, SwiftUI, MVC, MVVM, VIPER, CoreData, Networking, Combine, Xcode, fastlane ...
+- CI/CD, SOLID, Architecture, Modularization, Refactoring, TDD, Dev Tooling
+- Unit, Integration, Snapshot, UI Testing
+- Scalability, Performance, Automation, git
+- Team Coaching, Training, Code Reviews, Public Speaking
 
 ### Giving something back
 
@@ -26,5 +26,5 @@ If you want to really learn about something, prepare to teach it to others :)
 
 ### Contact
 
-Please don't hesitate to reach out if you think my skills can be of help to your team.
+Let’s connect — I’d love to help your team build scalable, high-quality software!
 [Github](https://github.com/bpoplauschi) [LinkedIn](http://www.linkedin.com/in/bpoplauschi).
