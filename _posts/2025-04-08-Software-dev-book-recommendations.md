@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Book Recommendations"
-date:   2025-04-03 08:00:00 +0300
+title:  "Software Development Book Recommendations"
+date:   2025-04-08 08:00:00 +0300
 categories: []
 comments_id: 34
 tags: [books]
@@ -13,22 +13,23 @@ I preffer to have a clear and proven learning track, so I mostly focus on timele
 
 __Disclaimer:__ I recommend __studying__ these books, and __learning__ from them, __not just reading__. This means __reading more than once__, __taking notes__, __trying out__ the concepts in real life, trying to __link the new knowledge to the one you already have__ (to make learning effective).
 
-# Software Development and iOS Development
+_Format: I tried summarizing the book in one paragraph, define the book's impact on me and listing my main takeaways._
 
-### [Dependency Injection in .NET by Mark Seeman](https://www.amazon.com/Dependency-Injection-NET-Mark-Seemann/dp/1935182501)
-Mark Seemann offers a thorough explanation of how to __decouple__ software components by __injecting their dependencies at runtime__, enabling more flexible, testable, and maintainable code in applications.
+# [Dependency Injection in .NET by Mark Seeman](https://www.amazon.com/Dependency-Injection-NET-Mark-Seemann/dp/1935182501)
+This book offers a thorough explanation of how to __decouple__ software components by __injecting their dependencies at runtime__, enabling more flexible, testable, and maintainable code in applications.
 
 For me, it has transformed the way I design and code apps, deeply understanding layering and dependencies, modularizing (based on the requirements), but also having a proven mechanism (Composition Root) to compose modules into different apps or flavors of the same app.
 
 Takeaways:
-- __Manual DI__: Constructor, Property or Method Injection. __Constructor Injection__ is the safest option in compiler-based languages, as the compiler won't allow constructing an object unless its dependencies are provided.
-- __Service Locator anti-pattern__ - this is a widely used pattern which leads to high-coupling and runtime errors
+- __Manual DI__: Constructor, Property or Method Injection. 
+- __Constructor Injection__ is the safest option in compiler-based languages, as the compiler won't allow constructing an object unless its dependencies are provided.
+- __Service Locator anti-pattern__ - widely used pattern which leads to high-coupling and runtime errors
 - Choosing between __Manual DI__ vs __DI containers__ (the later should not be used in all app layers, but rather in the Composition Root only)
 - __Modularity__ and how to __compose an app using modules__ and __a Composition Root__.
 - __Composition Root pattern__ = the lowest level and most concrete component, the app entry point
 - How to implement __cross-cutting concerns__ with the __Decorator pattern__.
 
-### [Working Effectively with Legacy Code by Michael Feathers](https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052)
+# [Working Effectively with Legacy Code by Michael Feathers](https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052)
 If you’re a developer, you work with __legacy code__. This book highlights the __value of existing, functioning code__ and shows how to __make small adjustments to make it testable and unlock refactoring__.
 
 This book transformed the way I look at code, especially legacy code. From running away from legacy code and being intimidated by such challanges, it flipped the narative and allowed me to see all the opportunities to improve that already functioning code, following these battle-proven techniques and patterns. These skills just make me stand out as an engineer.
@@ -41,7 +42,7 @@ Takeaways:
 - __Breaking Dependencies__ - see techniques for dealing with problematic dependencies (like _singletons_, _static methods_, or _global variables_) so that you can isolate and test the units in question. Often involves introducing interfaces or employing DI.
 - __Sprout Method / Class__ - instead of modifying an existing method or class heavily, you “sprout” a new one that safely holds new functionality
 
-### [Domain-Driven Design: Tackling Complexity in the Heart of Software by Eric Evans](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software-ebook/dp/B00794TAUG)
+# [Domain-Driven Design: Tackling Complexity in the Heart of Software by Eric Evans](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software-ebook/dp/B00794TAUG)
 This book emphasizes structuring and implementing software around a deep understanding of the business domain, using a Ubiquitous Language and well-defined boundaries to create models that reflect real-world complexity effectively.
 
 Takeaways:
@@ -58,7 +59,7 @@ Takeaways:
 - __Repositories__, __Factories__, __Domain Events__
 - __Anti-Corruption Layer__ 
 
-### [Refactoring: Improving the Design of Existing Code by Martin Fowler](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature/dp/0134757599)
+# [Refactoring: Improving the Design of Existing Code by Martin Fowler](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature/dp/0134757599)
 Refactoring is not rewriting; it’s a methodical process of cleaning up code with recipe-like steps. Think of this as the classic “recipe book” for refactoring.
 
 I use it regularly, especially given the IDE I mostly use (Xcode) has very limited automated refactoring capabilities.
@@ -81,10 +82,10 @@ Takeaways:
 - __Naming Matters__: Consistent and meaningful names for variables, methods, and classes help communicate intent and maintain clarity.
 - __Continuous Refactoring Culture__: Treat refactoring as an ongoing, integral part of development rather than a one-time event—this keeps code healthy over its entire lifespan.
 
-### [Clean Code: A Handbook of Agile Software Craftsmanship by Robert Martin](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
-Clean Code by Uncle Bob Martin emphasizes writing readable, maintainable, and elegant code by following core principles, best practices, and disciplined craftsmanship that leads to higher-quality software.
+# [Clean Code: A Handbook of Agile Software Craftsmanship by Robert Martin](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+Clean Code emphasizes writing readable, maintainable, and elegant code by following core principles, best practices, and disciplined craftsmanship that leads to higher-quality software.
 
-For me, reading Clean Code was the point in time where I stopped being a "hacker" (in the sense of hacking things together so they work) and moved towards being a professional developer, that follows standards, metrics, rules, that takes pride of their work. This was an identity tranformation.
+For me, reading Clean Code and Clean Coder was the point in time where I stopped being a "hacker" (in the sense of hacking things together so they work) and moved towards being a professional developer, that follows standards, metrics, rules, that takes pride of their work. This was an identity tranformation.
 
 Takeaways:
 - __Readability Is Key__: Code should be optimized for human comprehension first, ensuring that anyone can easily understand and modify it in the future.
@@ -98,7 +99,32 @@ Takeaways:
 - __Formatting and Consistency__: Follow consistent formatting rules to help others (and your future self) navigate the code easily.
 - __Boy Scout Rule: Leave the camp cleaner than you found it.__
 
-### [iOS Unit Testing by Example: XCTest Tips and Techniques Using Swift by Jon Reid](https://www.amazon.com/iOS-Unit-Testing-Example-Techniques/dp/1680506811)
+# [The Clean Coder: A Code of Conduct for Professional Programmers by Robert C. Martin](https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073)
+
+The Clean Coder emphasizes the ethics, mindset, and practices that distinguish professional programmers, focusing on responsibility, discipline, and clear communication to produce high-quality software.
+
+Takeaways:
+- __Professionalism as a programmer, Standards and Accountability__
+- __Clear communication and Boundaries__
+- __Discipline in Coding Practices__: TDD, Refactoring, CI
+- __Handling timelines, pressure, estimations__
+- __Continuous Learning and Improvement__
+
+# [Clean Architecture: A Craftsman's Guide to Software Structure and Design by Robert C. Martin](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164)
+
+Clean Architecture describes principles and design practices for creating software systems that are resilient to changing requirements, easily testable, and maintainable over their entire lifecycle.
+
+Takeaways:
+- __Separation of concerns__
+- __SOLID Principles__ in detail
+- __Entities__
+- __Business rules__
+- __Usecases__
+- __Frameworks and drivers__
+- __Layers and Boundaries__
+- __Plug-in Architecture__
+
+# [iOS Unit Testing by Example: XCTest Tips and Techniques Using Swift by Jon Reid](https://www.amazon.com/iOS-Unit-Testing-Example-Techniques/dp/1680506811)
 This is a practical guide to writing maintainable and robust iOS applications through effective unit testing and test-driven development (TDD) principles, focusing on both Swift and Objective-C codebases.
 
 Automated testing is such a complex domain and it requires so many other skills to be put to practice. More so TDD. It's one thing to write some unit tests and another to choose between numerous types of tests, write clean concise tests, that exercise the behavior of the code and not its structure so that one can later refactor that code without breaking the tests.
@@ -111,7 +137,7 @@ Takeaways:
 - Continuous testing boosts confidence: run these locally, while you develop, after every change. Also run them as part of the CI pipelines
 - __Well-written, high-coverage__ __tests__ serve as a __safety net for refactoring__, encouraging developers to improve design __without fear__ of breaking existing functionality.
 
-### [The Pragmatic Programmer: Your Journey To Mastery by Andrew Hunt and David Thomas](https://www.amazon.com/Pragmatic-Programmer-journey-mastery-Anniversary/dp/0135957052)
+# [The Pragmatic Programmer: Your Journey To Mastery by Andrew Hunt and David Thomas](https://www.amazon.com/Pragmatic-Programmer-journey-mastery-Anniversary/dp/0135957052)
 The Pragmatic Programmer provides practical guidance and a mindset for software developers to continually refine their craft, create robust solutions, and take ownership of all aspects of their code.
 
 This book may seem trivial in some ways, but it has a subtle intelligence to it. It highlights an art of being balanced, pragmatic, of choosing wisely between quick and dirty and clean ellaborate solutions. It highlights the need to be focused so you can choose from all the tools at your disposal. And it does a great job at showcasing many of these tools that were here many years ago when it was first published.
@@ -130,64 +156,27 @@ Takeaways:
 - __Coding Conventions and Standards__: Maintain consistent naming, formatting, and architectural decisions to improve team collaboration and readability.
 - __Collaboration and Communication__: Write clear documentation, engage in effective code reviews, and communicate openly with team members to address issues early and improve collective knowledge.
 
-# Leadership
+# [Extreme Programming Explained: Embrace Change by Kent Beck](https://www.amazon.com/Extreme-Programming-Explained-Embrace-Change/dp/0321278658)
 
-### [Extreme Ownership: How U.S. Navy SEALs Lead and Win by Jocko Willink and Leif Babin](https://www.amazon.com/Extreme-Ownership-audiobook/dp/B015TM0RM4)
-Demonstrates why taking total responsibility is the cornerstone of effective leadership (and personal growth). A fun read if you enjoy military stories.
-
-I can't put into words how much this book has affected me. I fell in love with the idea of Extreme Ownership, that we are responsible for every aspect of our lives and we must act accordingly. This doesn't mean ignoring the reality, but rather focusing on the things under our control. Though hard, but through discipline, it's liberating to take ownership of your life.
+Consider this the field manual on Extreme Programming (XP) and Test Driven Development (TDD).
+XP is a lightweight, people-centric methodology that emphasizes rapid feedback, short development cycles, close collaboration, and continuous improvement to deliver high-quality software in the face of changing requirements.
 
 Takeaways:
-- __Ownership Starts at the Top__: Leaders must own every outcome and take responsibility for successes and failures, never shifting blame to subordinates or external circumstances.
-- __There are no Bad Teams, only Bad Leaders__: A direct connection exists between the leader’s mindset and the team’s performance — when the leader adjusts approach, the team’s results can transform dramatically.
-- __Believe in the Mission__: Leaders must internalize and believe in the mission's purpose; if they are uncertain or lack conviction, the team will sense it, causing misalignment and low morale. They also must make sure their team understands and believes too - this is the leader's responsibility.
-- __Check the Ego__: Ego can blind leaders to reality, disrupt team unity, and prevent collaborative problem-solving; recognizing and subduing one’s ego is essential.
-- __Simplify Plans and Communication__: The more complex a plan or message, the higher the likelihood of confusion and error; leaders must simplify instructions to ensure everyone understands roles, goals, and execution steps.
-- __Prioritize and Execute__: In complex, high-pressure situations, leaders must discern the most critical task and tackle it first before moving on to the next.
-- __Cover and Move (Teamwork)__: Different departments or individuals support one another to achieve overarching objectives rather than only their own tasks.
-- __Decentralized Command__: Empowering each person to lead within their realm of responsibility prevents leader overload and fosters more agile decision-making.
+- __Core XP Values: Communication, Simplicity, Feedback, Courage, Respect__
+- __TDD__: Writing automated tests before coding to guide design and validate functionality. Uses a Red - Green - Refactor cycle.
+- __Pair Programming__: Two developers share one workstation, continuously reviewing and improving each other’s work. Produces quality design, less defects, reduces need to use the classical code review workflow.
+- __Continuous Integration__: Frequent merging of code changes to identify integration problems early.
+- __Refactoring__: Systematic improvement of code structure without altering functionality.
+- __Simple Design__: Always aim for the simplest system that works, deferring complexity until necessary.
+- __On-Site Customer__: Having a real customer or representative available for immediate feedback and clarification.
+- __Collective Code Ownership__: Any team member can modify any part of the code at any time.
+- __Whole Team__: All roles (developers, testers, domain experts) collaborate continuously.
+- __Sustainable Pace__: Avoid burnout by maintaining a healthy, consistent work pace (e.g., 40-hour work week).
 
-### [The Dichotomy of Leadership: Balancing the Challenges of Extreme Ownership to Lead and Win by Jocko Willink and Leif Babin](https://www.amazon.com/The-Dichotomy-of-Leadership-audiobook/dp/B07BN5NGQ5)
-A follow-up to Extreme Ownership, in the same engaging style. The key message: find balance in all things.
+# Feedback
 
-### [Hal Moore on Leadership: Winning When Outgunned and Outmanned by Harold Moore](https://www.amazon.com/Hal-Moore-on-Leadership-audiobook/dp/B078KLYRPV)
-Translates battlefield lessons into practical insights on inspiring and guiding others.\
-My main takeaway: Colonel Hal Moore used to go on a long run before making a tough decision to gain clarity.
+What are the books that have changed the way you work, the way you think?
 
-Takeaways:
-- __Put Your People First__
-- __Lead by Example__
-- __Prepare Relentlessly__
-- __Stay Calm Under Pressure__
-- __Cultivate Moral and Ethical Foundations__
-- __“There’s Always One More Thing You Can Do” Mindset__
-- __Clear, Concise Communication__
-- __Accountability and Ownership__
+What book from this list are you planning to read next? Why?
 
-### [Start with Why: How Great Leaders Inspire Everyone to Take Action by Simon Sinek](https://www.amazon.com/Start-with-Why-Simon-Sinek-audiobook/dp/B074VF6ZLM)
-
-In Start with Why, Simon Sinek argues that truly influential leaders and organizations begin by defining a clear purpose—“why” they do what they do—before explaining the “how” and the “what,” thereby inspiring loyalty, innovation, and sustained success.
-
-Takeaways:
-- __The Golden Circle__: Sinek introduces the Golden Circle model—Why, How, What—to explain how the most inspiring leaders and organizations place “why” (their core purpose) at the center of everything they do, guiding strategy and communication.
-- __Importance of Purpose__: By starting with a compelling “why,” leaders can tap into deeper motivations and emotions, fostering stronger loyalty and commitment from employees, customers, and partners.
-- __Inspiration Over Manipulation__: While many organizations rely on incentives or fear-based tactics (“manipulations”) to drive short-term results, the truly great ones focus on inspiring people to act, generating lasting trust and engagement.
-- __Leadership and Trust__: Leadership rooted in clear purpose and authenticity naturally builds trust; people follow leaders who are genuine in their beliefs and transparent in their intentions.
-- __Consistency and Clarity__: Organizations must consistently align their processes, products, and messaging with their core purpose—this cohesiveness reinforces “why” at every level and keeps both internal teams and external audiences inspired.
-
-# Personal Growth
-
-### [Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones by James Clear](https://www.amazon.com/Atomic-Habits-James-Clear-audiobook/dp/B07RFSSYBH)
-Offers practical steps for developing small, consistent habits that grow into significant results. A cornerstone read for high performance.
-
-Takeaways:
-- __Tiny Changes, Remarkable Results__: Consistent improvements of just 1% each day accumulate into significant outcomes over time, proving that small actions are more powerful than large, infrequent efforts.
-- __Focus on Identity, Not Just Goals__: Effective habit change involves adopting an identity that aligns with your desired behavior.
-- __Design Your Environment__: Reshape your surroundings to make good habits obvious and bad habits less convenient.
-- __Use the Habit Loop__: Leverage the cue–craving–response–reward cycle to create or break habits. Provide clear triggers (cues), harness motivation (cravings), establish simple actions (responses), and reinforce behavior (rewards).
-- __Habit Stacking and the Two-Minute Rule__: Pair a new habit with an existing habit.
-- __the Two-Minute Rule__: Begin each new habit with a small, manageable action to reduce friction and make it easier to follow through.
-
-
-### [Indistractable: How to Control Your Attention and Choose Your Life by Nir Eyal]()
-In a world filled with distractions, this is a practical guide for regaining focus and clarity.
+Let me know in the comments section. I'd be happy do discuss and learn.
