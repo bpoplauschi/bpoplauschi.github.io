@@ -37,10 +37,16 @@ This book transformed the way I look at code, especially legacy code. From runni
 Takeaways:
 - __Legacy code__ = __code without tests or with an unclear structure, regardeless of age__
 - Use the __recipes__ in the book to make __small safe changes that enable testability__
-- __Seams__ = places where you can alter behavior without modifying existing code directly - essential for introducing tests and making controlled changes
+- __Seam__ = place where you can alter behavior without modifying existing code directly - essential for introducing tests and making controlled changes
 - Write __Characterization Tests__ for legacy code which enable safe refactorings
+- __Sprout Method / Class__ - instead of modifying an existing method or class, you “sprout” a new one that safely holds new functionality
+- __Wrap Method / Class__: Wrapper around existing entity to intercept or adjust behavior without changing the original one
 - __Breaking Dependencies__ - see techniques for dealing with problematic dependencies (like _singletons_, _static methods_, or _global variables_) so that you can isolate and test the units in question. Often involves introducing interfaces or employing DI.
-- __Sprout Method / Class__ - instead of modifying an existing method or class heavily, you “sprout” a new one that safely holds new functionality
+- __Extract and Override Call__: Move direct dependency call (e.g., to a difficult API) into separate method that you can override in a subclass, avoiding the real dependency in tests.
+- __Extract Interface__: Split an existing class into an interface and an implementation; the interface can then be mocked or substituted as needed.
+- __Parameterize Constructor or Method__: Let the constructor / method accept external dependencies (instead of hard-coding them)
+- __Pull Up / Push Down Feature__: Move a field or method from derived classes into a base class when it is shared logic; move the other way to isolate specialized behavior
+- __Extract Method__: Pull out piece of logic from a larger method into a separate one
 
 # [Domain-Driven Design: Tackling Complexity in the Heart of Software by Eric Evans](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software-ebook/dp/B00794TAUG)
 This book emphasizes structuring and implementing software around a deep understanding of the business domain, using a Ubiquitous Language and well-defined boundaries to create models that reflect real-world complexity effectively.
@@ -88,12 +94,12 @@ Clean Code emphasizes writing readable, maintainable, and elegant code by follow
 For me, reading Clean Code and Clean Coder was the point in time where I stopped being a "hacker" (in the sense of hacking things together so they work) and moved towards being a professional developer, that follows standards, metrics, rules, that takes pride of their work. This was an identity tranformation.
 
 Takeaways:
+- __SOLID principles__: applying all the 5 principles is fundamental to writing maintainable, readable, testable code
 - __Readability Is Key__: Code should be optimized for human comprehension first, ensuring that anyone can easily understand and modify it in the future.
 - __Small, Focused Functions and Classes__: Methods and classes should do exactly one thing and do it well, which keeps the codebase modular, testable, and easier to maintain.
 - __Meaningful Names__: Clear, descriptive naming for variables, functions, and classes significantly reduces confusion and improves overall readability.
 - __Continuous Refactoring__: Regularly improving existing code keeps it clean and up to date, preventing “code rot” and complexity from creeping in over time.
 - __Emphasis on Testing__: Testing (often through Test-Driven Development) helps catch issues early and ensures the code’s design stays simple, robust, and reliable.
-- __SOLID principles__
 - __Error Handling__: Handle errors gracefully and clearly. Use exceptions for exceptional conditions and provide context in error messages.
 - __Code comments__: Favor self-explanatory code over excessive comments. Use comments sparingly to clarify complex logic rather than to explain poorly written code.
 - __Formatting and Consistency__: Follow consistent formatting rules to help others (and your future self) navigate the code easily.
