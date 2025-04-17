@@ -8,22 +8,28 @@ tags: [books]
 
 ---
 
+<meta name="Timeless software‑engineering books that transformed my daily coding, from DDD to TDD.">
+
+If you’re a developer who wants evergreen guidance instead of the flavor‑of‑the‑month framework book, start here.
+
 > "The best way to predict the future is to create it."\
 > — Abraham Lincoln. 
 
-I believe most skills are aquired through hard work and discipline and that successful people have a track record of applying these.\
+I believe most skills are acquired through hard work and discipline. And that successful people have a track record of applying these.\
 To become a better version of yourself, you must find room to grow and fill it. By learning, by trying, by deciding to no longer tolerate your limitations.
 
 One guaranteed way to learn and grow is by __studying the great books from a certain domain__.
 I've compiled a top list of Software Development books, books that were simply __transformational__.
-When it comes to learning, I preffer a proven track, so I mostly focus on __timeless classics__ instead of following trends and the most recent publications.
+When it comes to learning, I prefer a proven track, so I mostly focus on __timeless classics__ instead of following trends and the most recent publications.
 These are mostly books that offer depth, explaining ideas, concepts, paradigms, techniques, patterns. Most of them are __platform and language agnostic__, so they are __applicable to Software development in general__.
 
 __Disclaimer:__ I recommend __studying__ these books, and __learning__ from them, __not just reading__. This means __reading more than once__, __taking notes__, __trying out__ the concepts in real life, trying to __link the new knowledge to the one you already have__ (to make learning effective).
 
 _Format: I tried summarizing the book in one paragraph, define the book's impact on me and listing my main takeaways._
 
+# <img src="https://images-na.ssl-images-amazon.com/images/I/71eC9gxlJAL._AC_UL232_SR232,232_.jpg" width=200>
 # [Dependency Injection in .NET by Mark Seeman](https://www.amazon.com/Dependency-Injection-NET-Mark-Seemann/dp/1935182501)
+
 This book offers a thorough explanation of how to __decouple__ software components by __injecting__ their __dependencies__ at runtime, enabling more flexible, testable, and maintainable code in applications.
 
 For me, it has transformed the way I design and code apps, deeply understanding layering and dependencies, modularizing (based on the requirements), but also having a proven mechanism (Composition Root) to compose modules into different apps or flavors of the same app.
@@ -37,13 +43,15 @@ Takeaways:
 - __Composition Root pattern__ = the lowest level and most concrete component, the app entry point.
 - How to implement __Cross-Cutting concerns__ with the __Decorator pattern__.
 
+# <img src="https://images-na.ssl-images-amazon.com/images/I/81iVQ1bi-FL._AC_UL232_SR232,232_.jpg" width=200>
 # [Working Effectively with Legacy Code by Michael Feathers](https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052)
+
 If you’re a developer, you work with __legacy code__. This book highlights the __high value of existing, functioning code__ and shows how to __make small adjustments to make it testable and unlock refactoring__.
 
-This book transformed the way I look at code, especially legacy code. From running away from legacy code and being intimidated by such challanges, it flipped the narative and allowed me to see all the opportunities to improve that already functioning code, following these battle-proven techniques and patterns. Having these skills makes me stand out as an engineer.
+This book transformed the way I look at code, especially legacy code. From running away from legacy code and being intimidated by such challenges, it flipped the narrative and allowed me to see all the opportunities to improve that already functioning code, following these battle-proven techniques and patterns. Having these skills makes me stand out as an engineer.
 
 Takeaways:
-- __Legacy code__ = __code without tests or with an unclear structure, regardeless of age__.
+- __Legacy code__ = __code without tests or with an unclear structure, regardless of age__.
 - Use the __recipes__ in the book to make __small safe changes that enable testability__.
 - __Seam__ = place where you can alter behavior without modifying existing code directly - essential for introducing tests and making controlled changes.
 - Write __Characterization Tests__ for legacy code which enable safe refactorings.
@@ -56,10 +64,12 @@ Takeaways:
 - __Pull Up / Push Down Feature__: Move a field or method from derived classes into a base class when it is shared logic; move the other way to isolate specialized behavior.
 - __Extract Method__: Pull out piece of logic from a larger method into a separate one.
 
+# <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/33cd7d27-7bca-4d52-aad6-698145aec419.__CR200,0,1200,1200_PT0_SX300_V1___.png" width=200>
 # [Domain-Driven Design: Tackling Complexity in the Heart of Software by Eric Evans](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software-ebook/dp/B00794TAUG)
+
 This book emphasizes structuring and implementing software around a deep understanding of the business domain, using a Ubiquitous Language and well-defined boundaries to create models that reflect real-world complexity effectively.
 
-This book is incredibly deep, with very subtle but powerful concepts and examples. It made me push for a unified language between all the stakeholders involved in Software Development. And it enhanced the awereness I keep on the domain model and its separation from other layers.
+This book is incredibly deep, with very subtle but powerful concepts and examples. It made me push for a unified language between all the stakeholders involved in Software Development. And it enhanced the awareness I keep on the domain model and its separation from other layers.
 
 Takeaways:
 - __Focus on the Core Domain__: Invest time and resources in the core domain (business  strategic advantage) and model it with precision and clarity.
@@ -77,7 +87,9 @@ Takeaways:
 - __Anti-Corruption Layer__
 - __CQS at domain model level__
 
+# <img src="https://m.media-amazon.com/images/I/41odjJlPgHL._AC_SF480,480_.jpg" width=200>
 # [Refactoring: Improving the Design of Existing Code by Martin Fowler](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature/dp/0134757599)
+
 Refactoring is not rewriting; it’s a methodical process of cleaning up code with recipe-like steps. Think of this as the classic “recipe book” for refactoring.
 
 I use it regularly, especially given the IDE I mostly use (Xcode) has very limited automated refactoring capabilities.
@@ -100,10 +112,12 @@ Takeaways:
 - __Naming Matters__: Consistent and meaningful names for variables, methods, and classes help communicate intent and maintain clarity.
 - __Continuous Refactoring Culture__: Treat refactoring as an ongoing, integral part of development rather than a one-time event—this keeps code healthy over its entire lifespan.
 
+# <img src="https://m.media-amazon.com/images/I/413za4fzZLL._AC_SF480,480_.jpg" width=200>
 # [Clean Code: A Handbook of Agile Software Craftsmanship by Robert Martin](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+
 Clean Code emphasizes writing readable, maintainable, and elegant code by following core principles, best practices, and disciplined craftsmanship that leads to higher-quality software.
 
-Reading Clean Code and Clean Coder was the point in time where I stopped being a "hacker" (in the sense of hacking things together so they work) and moved towards being a professional developer, that follows standards, metrics, rules, that takes pride of their work. In my case, it was an identity tranformation.
+Reading Clean Code and Clean Coder was the point in time where I stopped being a "hacker" (in the sense of hacking things together so they work) and moved towards being a professional developer, that follows standards, metrics, rules, that takes pride of their work. In my case, it was an identity transformation.
 
 Takeaways:
 - __SOLID principles__: applying all the 5 principles is fundamental to writing maintainable, readable, testable code.
@@ -118,6 +132,7 @@ Takeaways:
 - __Formatting and Consistency__: Follow consistent formatting rules to help others (and your future self) navigate the code easily.
 - __Boy Scout Rule: Leave the camp cleaner than you found it.__
 
+# <img src="https://m.media-amazon.com/images/I/4192DPXrLJL._AC_SF480,480_.jpg" width=200>
 # [The Clean Coder: A Code of Conduct for Professional Programmers by Robert C. Martin](https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073)
 
 The Clean Coder emphasizes the ethics, mindset, and practices that distinguish professional programmers, focusing on responsibility, discipline, and clear communication to produce high-quality software.
@@ -129,6 +144,7 @@ Takeaways:
 - __Handling timelines, pressure, estimations__
 - __Continuous Learning and Improvement__
 
+# <img src="https://m.media-amazon.com/images/I/41fijVG5x7L._AC_SF480,480_.jpg" width=200>
 # [Clean Architecture: A Craftsman's Guide to Software Structure and Design by Robert C. Martin](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164)
 
 Clean Architecture describes principles and design practices for creating software systems that are resilient to changing requirements, easily testable, and maintainable over their entire lifecycle.
@@ -143,11 +159,13 @@ Takeaways:
 - __Layers and Boundaries__
 - __Plug-in Architecture__
 
+# <img src="https://m.media-amazon.com/images/S/aplus-media/vc/9f54365c-c4c5-451f-a2c1-c9893fa4a45d.__CR0,104,1076,1076_PT0_SX300_V1___.png" width=200>
 # [iOS Unit Testing by Example: XCTest Tips and Techniques Using Swift by Jon Reid](https://www.amazon.com/iOS-Unit-Testing-Example-Techniques/dp/1680506811)
+
 This is a practical guide to writing maintainable and robust iOS applications through effective unit testing and test-driven development (TDD) principles, focusing on both Swift and Objective-C codebases.
 
 Automated testing is such a complex domain and it requires so many other skills to be put to practice. More so TDD. It's one thing to write some unit tests and another to choose between numerous types of tests, write clean concise tests, that exercise the behavior of the code and not its structure so that one can later refactor that code without breaking the tests.
-With the help of this book and the iOS Lead Essentials program by Caio and Mike, I was able to take my testing skills to the next level. I became profficient with testing, capable of thinking strategically about testing strategies and their implementation using various types of tests.
+With the help of this book and the iOS Lead Essentials program by Caio and Mike, I was able to take my testing skills to the next level. I became proficient with testing, capable of thinking strategically about testing strategies and their implementation using various types of tests.
 
 Takeaways:
 - __TDD encourages Clean Code__
@@ -156,10 +174,12 @@ Takeaways:
 - Continuous testing boosts confidence: run these locally, while you develop, after every change. Also run them as part of the CI pipelines
 - __Well-written, high-coverage__ __tests__ serve as a __safety net for refactoring__, encouraging developers to improve design __without fear__ of breaking existing functionality.
 
+# <img src="https://images-na.ssl-images-amazon.com/images/I/71f1jieYHNL._AC_UL232_SR232,232_.jpg" width=200>
 # [The Pragmatic Programmer: Your Journey To Mastery by Andrew Hunt and David Thomas](https://www.amazon.com/Pragmatic-Programmer-journey-mastery-Anniversary/dp/0135957052)
+
 The Pragmatic Programmer provides practical guidance and a mindset for software developers to continually refine their craft, create robust solutions, and take ownership of all aspects of their code.
 
-This book may seem trivial in some ways, but it has a subtle intelligence to it. It highlights an art of being balanced, pragmatic, of choosing wisely between quick and dirty and clean ellaborate solutions. It highlights the need to be focused so you can choose from all the tools at your disposal. And it does a great job at showcasing many of these tools that were here many years ago when it was first published.
+This book may seem trivial in some ways, but it has a subtle intelligence to it. It highlights an art of being balanced, pragmatic, of choosing wisely between quick and dirty and clean elaborate solutions. It highlights the need to be focused so you can choose from all the tools at your disposal. And it does a great job at showcasing many of these tools that were here many years ago when it was first published.
 
 Takeaways:
 - Embrace __continuous learning__.
@@ -175,6 +195,7 @@ Takeaways:
 - __Coding Conventions and Standards__: Maintain consistent naming, formatting, and architectural decisions to improve team collaboration and readability.
 - __Collaboration and Communication__: Write clear documentation, engage in effective code reviews, and communicate openly with team members to address issues early and improve collective knowledge.
 
+# <img src="https://images-na.ssl-images-amazon.com/images/I/61Jdrn9cfpL._AC_UL232_SR232,232_.jpg" width=200>
 # [Extreme Programming Explained: Embrace Change by Kent Beck](https://www.amazon.com/Extreme-Programming-Explained-Embrace-Change/dp/0321278658)
 
 Consider this the field manual on Extreme Programming (XP) and Test Driven Development (TDD).
@@ -194,7 +215,7 @@ Takeaways:
 
 # Feedback
 
-What are the books that have changed the way you work, the way you think?
+What are the books that have changed the way you work, the way you think? What's your favorite learning from them?
 
 What book from this list are you planning to read next? Why?
 
